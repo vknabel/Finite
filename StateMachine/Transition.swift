@@ -26,6 +26,17 @@ public struct Transition<T: Hashable>: Hashable {
     /// The targeted state.
     public var to: T?
     
+    /**
+    Constructs an absolute, relative or nil transition.
+    
+    :param: from The source state.
+    :param: to The target state.
+    */
+    public init(from: T?, to: T?) {
+        self.from = from
+        self.to = to
+    }
+    
     /** 
     All more general transitions include itself except the nil transition.
     
@@ -36,9 +47,9 @@ public struct Transition<T: Hashable>: Hashable {
         - Nil transitions have no generals.
     */
     public var generalTransitions: [Transition<T>] {
-        return [self, Transition<T>(from: from, to: nil), Transition<T>(from: nil, to: to)].filter { (t) -> Bool in
+        return deleteDuplicates([self, Transition<T>(from: from, to: nil), Transition<T>(from: nil, to: to)].filter { (t) -> Bool in
             return t != Transition<T>(from: nil, to: nil)
-        }
+        })
     }
     
     /// The hash value.

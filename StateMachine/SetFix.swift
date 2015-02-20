@@ -32,3 +32,10 @@ internal struct Set<T : Hashable>: SequenceType
         return items.generate()
     }
 }
+
+internal func deleteDuplicates<S: ExtensibleCollectionType where S.Generator.Element: Equatable>(seq:S)-> S {
+    let s = reduce(seq, S()){
+        ac, x in contains(ac,x) ? ac : ac + [x]
+    }
+    return s
+}
