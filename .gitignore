@@ -25,8 +25,5 @@ DerivedData
 #
 Pods/
 
-# Carthage
-Carthage/
-
 # Bug
 ._*
