@@ -8,8 +8,8 @@ enum Test: Int {
 }
 
 var machine = StateMachine<Test>(initial: .Ready) { c in
-    c.allowTransitions(from: [.Saving, .Fetching, .Deleting], to: [.Ready, .Fail])
-    c.allowTransitions(from: .Ready, to: [.Saving, .Fetching, .Deleting])
+    c.allow(from: [.Saving, .Fetching, .Deleting], to: [.Ready, .Fail])
+    c.allow(from: .Ready, to: [.Saving, .Fetching, .Deleting])
 }
 
 machine.onTransitions(from: .Ready) {
@@ -73,11 +73,11 @@ enum Process {
 
 var scnd = StateMachine<State<Process>>(initial: .Ready) { (inout c: StateFlow<State<Process>>) in
     //allow transitions from busy
-    c.allowTransitions(to: [.Ready, .Error]) { transition in
+    c.allow(to: [.Ready, .Error]) { transition in
         return transition.from?.isBusy ?? false
     }
     //allow transitions from ready to busy
-    c.allowTransitions(from: .Ready) { t in
+    c.allow(from: .Ready) { t in
         return t.to?.isBusy ?? false
     }
 }

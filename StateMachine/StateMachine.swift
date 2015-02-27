@@ -56,7 +56,7 @@ public struct StateMachine<T: Hashable> {
     */
     public mutating func triggerTransition(#to: T, completion: Operation? = nil) -> Bool {
         let transition = self.transition(to: to)
-        if configuration.allowsTransition(transition) {
+        if configuration.allows(transition) {
             for t in transition.generalTransitions {
                 if let handlers = self.transitionHandlers[t] {
                     for h in handlers {
@@ -77,8 +77,8 @@ public struct StateMachine<T: Hashable> {
     :param: to The targeted state.
     :returns: true if allowed else false.
     */
-    public func allowsTransition(#to: T) -> Bool {
-        return configuration.allowsTransition(self.transition(to: to))
+    public func allows(#to: T) -> Bool {
+        return configuration.allows(self.transition(to: to))
     }
     
     /**
