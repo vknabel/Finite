@@ -29,8 +29,8 @@ public struct Transition<T: Hashable>: Hashable {
     /**
     Constructs an absolute, relative or nil transition.
     
-    :param: from The source state.
-    :param: to The target state.
+    - parameter from: The source state.
+    - parameter to: The target state.
     */
     public init(from: T?, to: T?) {
         self.from = from
@@ -40,7 +40,7 @@ public struct Transition<T: Hashable>: Hashable {
     /** 
     All more general transitions include itself except the nil transition.
     
-    :returns: All general transitions.
+    - returns: All general transitions.
         
         - Generals of an absolute transition is itself and relative transitions.
         - Generals of a relative transition is only itself.

@@ -20,7 +20,7 @@ public struct StateFlow<T: Hashable> {
     /**
     Creates a new instance that can be mutated to be stored immutable.
     
-    :param: config A function that mutates the constructed instance.
+    - parameter config: A function that mutates the constructed instance.
     */
     public init(config: Configurator) {
         config(&self)
@@ -32,8 +32,8 @@ public struct StateFlow<T: Hashable> {
     /** 
     Allows all less-equal general transitions to be triggered.
     
-    :param: transition The transition allowing less-equal transitions.
-    :param: filter An optional filter for transitions.
+    - parameter transition: The transition allowing less-equal transitions.
+    - parameter filter: An optional filter for transitions.
     */
     public mutating func allow(transition: Transition<T>, filter: TransitionFilter? = nil) {
         if transitionFilters[transition] == nil {
@@ -45,11 +45,11 @@ public struct StateFlow<T: Hashable> {
     Returns wether a specific transition is allowed or not.
     Invokes defined transition filters until one returned true or a transition is unconditioned.
     
-    :param: transition The transition to be tested.
-    :returns: Returns true if a more-equal transition is allowed.
+    - parameter transition: The transition to be tested.
+    - returns: Returns true if a more-equal transition is allowed.
     */
     public func allows(transition: Transition<T>) -> Bool {
-        for t in transition.generalTransitions {
+        for _ in transition.generalTransitions {
             if let opf = transitionFilters[transition] {
                 let succ = opf?(transition) ?? true
                 if succ {
@@ -67,41 +67,41 @@ public extension StateFlow {
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from The source state.
-    :param: filter An optional filter for transitions.
+    - parameter from: The source state.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: T, filter: TransitionFilter? = nil) {
         self.allow(Transition<T>(from: from, to: nil), filter: filter)
     }
     
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: to The target state.
-    :param: filter An optional filter for transitions.
+    - parameter to: The target state.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(to to: T, filter: TransitionFilter? = nil) {
         self.allow(Transition<T>(from: nil, to: to), filter: filter)
     }
     
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from The source state.
-    :param: to The target state.
-    :param: filter An optional filter for transitions.
+    - parameter from: The source state.
+    - parameter to: The target state.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: T, to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: T, to: T, filter: TransitionFilter? = nil) {
         self.allow(Transition<T>(from: from, to: to), filter: filter)
     }
     
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from All source states.
-    :param: filter An optional filter for transitions.
+    - parameter from: All source states.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: [T], filter: TransitionFilter? = nil) {
         for f in from {
             self.allow(Transition<T>(from: f, to: nil), filter: filter)
         }
@@ -110,11 +110,11 @@ public extension StateFlow {
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from All source states.
-    :param: to The target state.
-    :param: filter An optional filter for transitions.
+    - parameter from: All source states.
+    - parameter to: The target state.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: [T], to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: [T], to: T, filter: TransitionFilter? = nil) {
         for f in from {
             self.allow(Transition<T>(from: f, to: to), filter: filter)
         }
@@ -123,10 +123,10 @@ public extension StateFlow {
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: to All target states.
-    :param: filter An optional filter for transitions.
+    - parameter to: All target states.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#to: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(to to: [T], filter: TransitionFilter? = nil) {
         for t in to {
             self.allow(Transition<T>(from: nil, to: t), filter: filter)
         }
@@ -135,11 +135,11 @@ public extension StateFlow {
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from The source state.
-    :param: to All target states.
-    :param: filter An optional filter for transitions.
+    - parameter from: The source state.
+    - parameter to: All target states.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: T, to: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: T, to: [T], filter: TransitionFilter? = nil) {
         for t in to {
             self.allow(Transition<T>(from: from, to: t), filter: filter)
         }
@@ -148,11 +148,11 @@ public extension StateFlow {
     /**
     Convinience method that allows all less-equal general absolute transitions to be triggered.
     
-    :param: from All source states.
-    :param: to All target states.
-    :param: filter An optional filter for transitions.
+    - parameter from: All source states.
+    - parameter to: All target states.
+    - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(#from: [T], to: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: [T], to: [T], filter: TransitionFilter? = nil) {
         for f in from {
             for t in to {
                 self.allow(Transition<T>(from: f, to: t), filter: filter)

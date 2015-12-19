@@ -28,19 +28,19 @@ public struct StateMachine<T: Hashable> {
     /** 
     Instantiates a state machine by configuring the StateFlow instance.
     
-    :param: initial The initial state.
-    :param: config A configurator for an instance of StateFlow.
+    - parameter initial: The initial state.
+    - parameter config: A configurator for an instance of StateFlow.
     */
     public init(initial: T, config: StateFlow<T>.Configurator) {
         self.currentState = initial
-        self.configuration = StateFlow<T>(config)
+        self.configuration = StateFlow<T>(config: config)
     }
     
     /**
     Instantiates a state machine by passing an instance of StateFlow.
     
-    :param: initial The initial state.
-    :param: stateFlow The state flow to be used as configuration.
+    - parameter initial: The initial state.
+    - parameter stateFlow: The state flow to be used as configuration.
     */
     public init(initial: T, stateFlow: StateFlow<T>) {
         self.currentState = initial
@@ -50,11 +50,11 @@ public struct StateMachine<T: Hashable> {
     /**
     Triggers a transition to a given state and invokes a callback on completion.
     
-    :param: to The targeted state.
-    :param: completion An optional callback. Will be only be called on success and after all defined transition handlers were invoked.
-    :returns: Wether the transition could be performed or not.
+    - parameter to: The targeted state.
+    - parameter completion: An optional callback. Will be only be called on success and after all defined transition handlers were invoked.
+    - returns: Wether the transition could be performed or not.
     */
-    public mutating func triggerTransition(#to: T, completion: Operation? = nil) -> Bool {
+    public mutating func triggerTransition(to to: T, completion: Operation? = nil) -> Bool {
         let transition = self.transition(to: to)
         if configuration.allows(transition) {
             for t in transition.generalTransitions {
@@ -74,18 +74,18 @@ public struct StateMachine<T: Hashable> {
     /**
     Returns wether transitioning to a state is allowed.
     
-    :param: to The targeted state.
-    :returns: true if allowed else false.
+    - parameter to: The targeted state.
+    - returns: true if allowed else false.
     */
-    public func allows(#to: T) -> Bool {
+    public func allows(to to: T) -> Bool {
         return configuration.allows(self.transition(to: to))
     }
     
     /**
     Appends a transition handler for all more-equal general transitions.
     
-    :param: transition The most specific transition.
-    :param: perform The operation the be performed.
+    - parameter transition: The most specific transition.
+    - parameter perform: The operation the be performed.
     */
     public mutating func onTransitions(transition: Transition<T>, perform op: Operation) {
         if transitionHandlers[transition] == nil {
@@ -98,8 +98,8 @@ public struct StateMachine<T: Hashable> {
 
 private extension StateMachine {
     
-    /// :returns: A transition from the current state to a given target.
-    private func transition(#to: T) -> Transition<T> {
+    /// - returns: A transition from the current state to a given target.
+    private func transition(to to: T) -> Transition<T> {
         return Transition<T>(from: self.currentState, to: to)
     }
     
@@ -110,11 +110,11 @@ public extension StateMachine {
     /**
     Appends a transition handler for all more-equal general transitions.
     
-    :param: from The source state.
-    :param: to The target state.
-    :param: perform The operation the be performed.
+    - parameter from: The source state.
+    - parameter to: The target state.
+    - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(#from: T, to: T, perform op: Operation) {
+    public mutating func onTransitions(from from: T, to: T, perform op: Operation) {
         let transition = Transition<T>(from: from, to: to)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
@@ -125,10 +125,10 @@ public extension StateMachine {
     /**
     Appends a transition handler for all more-equal general transitions.
     
-    :param: from The source state.
-    :param: perform The operation the be performed.
+    - parameter from: The source state.
+    - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(#from: T, perform op: Operation) {
+    public mutating func onTransitions(from from: T, perform op: Operation) {
         let transition = Transition<T>(from: from, to: nil)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
@@ -139,10 +139,10 @@ public extension StateMachine {
     /**
     Appends a transition handler for all more-equal general transitions.
     
-    :param: to The target state.
-    :param: perform The operation the be performed.
+    - parameter to: The target state.
+    - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(#to: T, perform op: Operation) {
+    public mutating func onTransitions(to to: T, perform op: Operation) {
         let transition = Transition<T>(from: nil, to: to)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
