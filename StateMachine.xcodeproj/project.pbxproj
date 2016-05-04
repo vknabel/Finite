@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAD26EBE1CDAA2840002A6BD /* SetFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD26EBD1CDAA2840002A6BD /* SetFix.swift */; };
 		DA1CEFEA1A966E730021BC68 /* StateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = DA1CEFE91A966E730021BC68 /* StateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA1CEFF01A966E730021BC68 /* StateMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1CEFE41A966E730021BC68 /* StateMachine.framework */; };
 		DA1CEFF71A966E730021BC68 /* StateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CEFF61A966E730021BC68 /* StateMachineTests.swift */; };
 		DA1CF0011A966E980021BC68 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CF0001A966E980021BC68 /* StateMachine.swift */; };
-		DA1CF0031A966EC10021BC68 /* SetFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CF0021A966EC10021BC68 /* SetFix.swift */; };
 		DA1CF0051A966EEC0021BC68 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CF0041A966EEC0021BC68 /* Transition.swift */; };
 		DA1CF0071A966F230021BC68 /* StateFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CF0061A966F230021BC68 /* StateFlow.swift */; };
 		DAB55A921A976E430099CA10 /* TransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB55A911A976E430099CA10 /* TransitionTests.swift */; };
@@ -28,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAD26EBD1CDAA2840002A6BD /* SetFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetFix.swift; sourceTree = "<group>"; };
+		BAD26EBF1CDAA3240002A6BD /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		DA1CEFE41A966E730021BC68 /* StateMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StateMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1CEFE81A966E730021BC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA1CEFE91A966E730021BC68 /* StateMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StateMachine.h; sourceTree = "<group>"; };
@@ -35,7 +37,6 @@
 		DA1CEFF51A966E730021BC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA1CEFF61A966E730021BC68 /* StateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachineTests.swift; sourceTree = "<group>"; };
 		DA1CF0001A966E980021BC68 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
-		DA1CF0021A966EC10021BC68 /* SetFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetFix.swift; sourceTree = "<group>"; };
 		DA1CF0041A966EEC0021BC68 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		DA1CF0061A966F230021BC68 /* StateFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateFlow.swift; sourceTree = "<group>"; };
 		DA688ABF1A96BF1D000A9735 /* StateMachine.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StateMachine.playground; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		DA1CEFDA1A966E730021BC68 = {
 			isa = PBXGroup;
 			children = (
+				BAD26EBF1CDAA3240002A6BD /* Package.swift */,
 				DA688ABF1A96BF1D000A9735 /* StateMachine.playground */,
 				DA1CEFE61A966E730021BC68 /* StateMachine */,
 				DA1CEFF31A966E730021BC68 /* StateMachineTests */,
@@ -84,10 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				DA1CEFE91A966E730021BC68 /* StateMachine.h */,
-				DA1CF0021A966EC10021BC68 /* SetFix.swift */,
 				DA1CF0041A966EEC0021BC68 /* Transition.swift */,
 				DA1CF0061A966F230021BC68 /* StateFlow.swift */,
 				DA1CF0001A966E980021BC68 /* StateMachine.swift */,
+				BAD26EBD1CDAA2840002A6BD /* SetFix.swift */,
 				DA1CEFE71A966E730021BC68 /* Supporting Files */,
 			);
 			path = StateMachine;
@@ -229,8 +231,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1CF0051A966EEC0021BC68 /* Transition.swift in Sources */,
-				DA1CF0031A966EC10021BC68 /* SetFix.swift in Sources */,
 				DA1CF0011A966E980021BC68 /* StateMachine.swift in Sources */,
+				BAD26EBE1CDAA2840002A6BD /* SetFix.swift in Sources */,
 				DA1CF0071A966F230021BC68 /* StateFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

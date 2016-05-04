@@ -47,7 +47,7 @@ public struct Transition<T: Hashable>: Hashable {
         - Nil transitions have no generals.
     */
     public var generalTransitions: [Transition<T>] {
-        return deleteDuplicates([self, Transition<T>(from: from, to: nil), Transition<T>(from: nil, to: to)].filter { (t) -> Bool in
+        return deleteDuplicates(seq: [self, Transition<T>(from: from, to: nil), Transition<T>(from: nil, to: to)].filter { (t) -> Bool in
             return t != Transition<T>(from: nil, to: nil)
         })
     }
