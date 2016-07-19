@@ -35,7 +35,7 @@ public struct StateFlow<T: Hashable> {
     - parameter transition: The transition allowing less-equal transitions.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(transition: Transition<T>, filter: TransitionFilter? = nil) {
+    public mutating func allow(transition transition: Transition<T>, filter: TransitionFilter? = nil) {
         if transitionFilters[transition] == nil {
             transitionFilters[transition] = filter
         }
@@ -70,7 +70,7 @@ public extension StateFlow {
     - parameter from: The source state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: from, to: nil), filter: filter)
     }
     
@@ -80,7 +80,7 @@ public extension StateFlow {
     - parameter to: The target state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(to to: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: nil, to: to), filter: filter)
     }
     
@@ -91,7 +91,7 @@ public extension StateFlow {
     - parameter to: The target state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from: T, to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: T, to: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: from, to: to), filter: filter)
     }
     
@@ -101,7 +101,7 @@ public extension StateFlow {
     - parameter from: All source states.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(from from: [T], filter: TransitionFilter? = nil) {
         for f in from {
             self.allow(transition: Transition<T>(from: f, to: nil), filter: filter)
         }
