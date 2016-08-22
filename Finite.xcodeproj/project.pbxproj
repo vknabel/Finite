@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 46;
+    rootObject = __RootObject_;
+    objects = {
+        __RootObject_ = {
+            isa = PBXProject;
+            attributes = {LastUpgradeCheck = 9999;};
+            buildConfigurationList = ___RootConfs_;
+            compatibilityVersion = 'Xcode 3.2';
+            developmentRegion = English;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = ___RootGroup_;
+            productRefGroup = ____Products_;
+            projectDirPath = '';
+            projectRoot = '';
+            targets = (______Target_Finite, ______Target_FiniteTests);
+        };
+        '__PBXFileRef_Package.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Package.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Finite.xcworkspace' = {
+            isa = PBXFileReference;
+            lastKnownFileType = folder;
+            name = 'Finite.xcworkspace';
+            path = 'Finite.xcworkspace';
+            sourceTree = '<group>';
+        };
+        ___RootGroup_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Package.swift', _____Configs_, _____Sources_, '__PBXFileRef_Finite.xcworkspace', Dependencies_, _______Tests_, ____Products_);
+            sourceTree = '<group>';
+        };
+        _______Group_Finite = {
+            isa = PBXGroup;
+            name = 'Finite';
+            path = 'Sources';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Sources/StateFlow.swift', '__PBXFileRef_Sources/StateMachine.swift', '__PBXFileRef_Sources/Transition.swift');
+        };
+        '__PBXFileRef_Sources/StateFlow.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'StateFlow.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/StateMachine.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'StateMachine.swift';
+            sourceTree = '<group>';
+        };
+        '__PBXFileRef_Sources/Transition.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'Transition.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_Finite = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_Finite;
+            buildPhases = (CompilePhase_Finite, ___LinkPhase_Finite);
+            buildRules = ();
+            dependencies = ();
+            name = 'Finite';
+            productName = Finite;
+            productReference = _____Product_Finite;
+            productType = 'com.apple.product-type.framework';
+        };
+        _____Product_Finite = {
+            isa = PBXFileReference;
+            explicitFileType = 'wrapper.framework';
+            path = 'Finite.framework';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_Finite = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Sources/StateFlow.swift', '__src_cc_ref_Sources/StateMachine.swift', '__src_cc_ref_Sources/Transition.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Sources/StateFlow.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/StateFlow.swift';
+        };
+        '__src_cc_ref_Sources/StateMachine.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/StateMachine.swift';
+        };
+        '__src_cc_ref_Sources/Transition.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Sources/Transition.swift';
+        };
+        ___LinkPhase_Finite = {
+            isa = PBXFrameworksBuildPhase;
+            files = ();
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        _______Confs_Finite = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_Finite, _ReleaseConf_Finite);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_Finite = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Finite.xcodeproj/Finite_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; SWIFT_OPTIMIZATION_LEVEL = '-Onone'; PRODUCT_BUNDLE_IDENTIFIER = 'Finite'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Debug;
+        };
+        _ReleaseConf_Finite = {
+            isa = XCBuildConfiguration;
+            buildSettings = { SWIFT_VERSION = '3.0'; LD_RUNPATH_SEARCH_PATHS = '$(TOOLCHAIN_DIR)/usr/lib/swift/macosx'; PRODUCT_MODULE_NAME = '$(TARGET_NAME:c99extidentifier)'; ENABLE_TESTABILITY = 'YES'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Finite.xcodeproj/Finite_Info.plist'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; PRODUCT_BUNDLE_IDENTIFIER = 'Finite'; PRODUCT_NAME = '$(TARGET_NAME:c99extidentifier)'; OTHER_LDFLAGS = '$(inherited)'; };
+            name = Release;
+        };
+        __Dependency_Finite = {
+            isa = PBXTargetDependency;
+            target = ______Target_Finite;
+        };
+        _______Group_FiniteTests = {
+            isa = PBXGroup;
+            name = 'FiniteTests';
+            path = 'Tests/FiniteTests';
+            sourceTree = '<group>';
+            children = ('__PBXFileRef_Tests/FiniteTests/TransitionTests.swift');
+        };
+        '__PBXFileRef_Tests/FiniteTests/TransitionTests.swift' = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = 'TransitionTests.swift';
+            sourceTree = '<group>';
+        };
+        ______Target_FiniteTests = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = _______Confs_FiniteTests;
+            buildPhases = (CompilePhase_FiniteTests, ___LinkPhase_FiniteTests);
+            buildRules = ();
+            dependencies = (__Dependency_Finite);
+            name = 'FiniteTests';
+            productName = FiniteTests;
+            productReference = _____Product_FiniteTests;
+            productType = 'com.apple.product-type.bundle.unit-test';
+        };
+        _____Product_FiniteTests = {
+            isa = PBXFileReference;
+            explicitFileType = 'compiled.mach-o.wrapper.cfbundle';
+            path = 'FiniteTests.xctest';
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        CompilePhase_FiniteTests = {
+            isa = PBXSourcesBuildPhase;
+            files = ('__src_cc_ref_Tests/FiniteTests/TransitionTests.swift');
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        '__src_cc_ref_Tests/FiniteTests/TransitionTests.swift' = {
+            isa = PBXBuildFile;
+            fileRef = '__PBXFileRef_Tests/FiniteTests/TransitionTests.swift';
+        };
+        ___LinkPhase_FiniteTests = {
+            isa = PBXFrameworksBuildPhase;
+            files = (_LinkFileRef_Finite_via_FiniteTests);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        _LinkFileRef_Finite_via_FiniteTests = {
+            isa = PBXBuildFile;
+            fileRef = _____Product_Finite;
+        };
+        _______Confs_FiniteTests = {
+            isa = XCConfigurationList;
+            buildConfigurations = (___DebugConf_FiniteTests, _ReleaseConf_FiniteTests);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        ___DebugConf_FiniteTests = {
+            isa = XCBuildConfiguration;
+            buildSettings = { LD_RUNPATH_SEARCH_PATHS = '@loader_path/../Frameworks'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Finite.xcodeproj/FiniteTests_Info.plist'; SWIFT_OPTIMIZATION_LEVEL = '-Onone'; EMBEDDED_CONTENT_CONTAINS_SWIFT = 'YES'; OTHER_LDFLAGS = '$(inherited)'; SWIFT_VERSION = '3.0'; };
+            name = Debug;
+        };
+        _ReleaseConf_FiniteTests = {
+            isa = XCBuildConfiguration;
+            buildSettings = { LD_RUNPATH_SEARCH_PATHS = '@loader_path/../Frameworks'; FRAMEWORK_SEARCH_PATHS = '$(PLATFORM_DIR)/Developer/Library/Frameworks'; OTHER_SWIFT_FLAGS = '$(inherited)'; INFOPLIST_FILE = 'Finite.xcodeproj/FiniteTests_Info.plist'; EMBEDDED_CONTENT_CONTAINS_SWIFT = 'YES'; OTHER_LDFLAGS = '$(inherited)'; SWIFT_VERSION = '3.0'; };
+            name = Release;
+        };
+        __Dependency_FiniteTests = {
+            isa = PBXTargetDependency;
+            target = ______Target_FiniteTests;
+        };
+        '__PBXFileRef_Finite.xcodeproj/Configs/Project.xcconfig' = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.xcconfig;
+            path = 'Finite.xcodeproj/Configs/Project.xcconfig';
+            sourceTree = '<group>';
+        };
+        _____Configs_ = {
+            isa = PBXGroup;
+            children = ('__PBXFileRef_Finite.xcodeproj/Configs/Project.xcconfig');
+            name = Configs;
+            sourceTree = '<group>';
+        };
+        _____Sources_ = {
+            isa = PBXGroup;
+            children = (_______Group_Finite);
+            name = Sources;
+            sourceTree = '<group>';
+        };
+        _______Tests_ = {
+            isa = PBXGroup;
+            children = (_______Group_FiniteTests);
+            name = Tests;
+            sourceTree = '<group>';
+        };
+       TestProducts_ = {
+            isa = PBXGroup;
+            children = (_____Product_FiniteTests);
+            name = Tests;
+            sourceTree = '<group>';
+        };
+        ____Products_ = {
+            isa = PBXGroup;
+            children = (TestProducts_, _____Product_Finite);
+            name = Products;
+            sourceTree = '<group>';
+        };
+        _______Debug_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Finite.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Debug;
+        };
+        _____Release_ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = '__PBXFileRef_Finite.xcodeproj/Configs/Project.xcconfig';
+            buildSettings = {};
+            name = Release;
+        };
+        ___RootConfs_ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (_______Debug_, _____Release_);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+    };
+}
