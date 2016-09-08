@@ -35,13 +35,12 @@ public struct StateFlow<T: Hashable> {
     - parameter transition: The transition allowing less-equal transitions.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(transition transition: Transition<T>, filter: TransitionFilter? = nil) {
+    public mutating func allow(transition: Transition<T>, filter: TransitionFilter? = nil) {
         if transitionFilters[transition] == nil {
             transitionFilters[transition] = filter
         }
     }
 
-    #if swift(>=3.0)
     /** 
     Returns wether a specific transition is allowed or not.
     Invokes defined transition filters until one returned true or a transition is unconditioned.
@@ -60,26 +59,6 @@ public struct StateFlow<T: Hashable> {
         }
         return false
     }
-    #else
-    /**
-     Returns wether a specific transition is allowed or not.
-     Invokes defined transition filters until one returned true or a transition is unconditioned.
-
-     - parameter transition: The transition to be tested.
-     - returns: Returns true if a more-equal transition is allowed.
-     */
-    public func allows(transition: Transition<T>) -> Bool {
-        for _ in transition.generalTransitions {
-            if let opf = transitionFilters[transition] {
-                let succ = opf?(transition) ?? true
-                if succ {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-    #endif
 }
 
 public extension StateFlow {
@@ -90,7 +69,7 @@ public extension StateFlow {
     - parameter from: The source state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from from: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: from, to: nil), filter: filter)
     }
     
@@ -100,7 +79,7 @@ public extension StateFlow {
     - parameter to: The target state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(to to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(to: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: nil, to: to), filter: filter)
     }
     
@@ -111,7 +90,7 @@ public extension StateFlow {
     - parameter to: The target state.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from from: T, to: T, filter: TransitionFilter? = nil) {
+    public mutating func allow(from: T, to: T, filter: TransitionFilter? = nil) {
         self.allow(transition: Transition<T>(from: from, to: to), filter: filter)
     }
     
@@ -121,7 +100,7 @@ public extension StateFlow {
     - parameter from: All source states.
     - parameter filter: An optional filter for transitions.
     */
-    public mutating func allow(from from: [T], filter: TransitionFilter? = nil) {
+    public mutating func allow(from: [T], filter: TransitionFilter? = nil) {
         for f in from {
             self.allow(transition: Transition<T>(from: f, to: nil), filter: filter)
         }

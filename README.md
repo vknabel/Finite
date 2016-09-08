@@ -5,6 +5,7 @@
 
 # Finite
 Finite is a simple, pure Swift finite state machine. Only exlicitly allowed transitions between states are allowed, otherwise an error will be thrown.
+Version `2.0.0` supports Swift `2.2` and `3.0 Beta`, whereas Finite `3.0.0` only supports Swift `3.0`.
 
 ## Installation
 EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
@@ -17,7 +18,7 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 2)
+        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 3)
     ]
 )
 ```

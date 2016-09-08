@@ -66,7 +66,7 @@ public struct StateMachine<T: Hashable> {
     - throws: Either TransitionError or rethrows underlying errors.
     - returns: Wether the transition could be performed or not.
     */
-    public mutating func transition(to to: T, completion: Operation? = nil) throws {
+    public mutating func transition(to: T, completion: Operation? = nil) throws {
         let transition = self.transition(to)
         if configuration.allows(transition) {
             for t in transition.generalTransitions {
@@ -89,7 +89,7 @@ public struct StateMachine<T: Hashable> {
     - parameter to: The targeted state.
     - returns: true if allowed else false.
     */
-    public func allows(to to: T) -> Bool {
+    public func allows(to: T) -> Bool {
         return configuration.allows(self.transition(to))
     }
     
@@ -99,7 +99,7 @@ public struct StateMachine<T: Hashable> {
     - parameter transition: The most specific transition.
     - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(transition transition: Transition<T>, perform op: Operation) {
+    public mutating func onTransitions(transition: Transition<T>, perform op: @escaping Operation) {
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
         }
@@ -131,7 +131,7 @@ public extension StateMachine {
     - parameter to: The target state.
     - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(from from: T, to: T, perform op: Operation) {
+    public mutating func onTransitions(from: T, to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: to)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
@@ -145,7 +145,7 @@ public extension StateMachine {
     - parameter from: The source state.
     - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(from from: T, perform op: Operation) {
+    public mutating func onTransitions(from: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: nil)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
@@ -159,7 +159,7 @@ public extension StateMachine {
     - parameter to: The target state.
     - parameter perform: The operation the be performed.
     */
-    public mutating func onTransitions(to to: T, perform op: Operation) {
+    public mutating func onTransitions(to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: nil, to: to)
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
