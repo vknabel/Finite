@@ -29,7 +29,7 @@ class TransitionTests: XCTestCase, LinuxTestCase {
     let reltt = Transition<Test>(from: nil, to: Test.S1)
     let abst = Transition<Test>(from: Test.S0, to: Test.S1)
     let abstr = Transition<Test>(from: Test.S1, to: Test.S0)
-    let ts: [Transition<Test>] {
+    var ts: [Transition<Test>] {
         return [nilt, relft, reltt, abst, abstr]
     }
 
