@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.2
+
+*Released: 2016-09-26*
+
+### Other Changes
+
+- Fixes Testing error - @vknabel
+
 ## 3.0.1
 
 *Released: 2016-09-26*
