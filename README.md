@@ -4,10 +4,12 @@
 [![License](https://img.shields.io/cocoapods/l/Finite.svg?maxAge=2592000?style=flat-square)]()
 
 # Finite
+
 Finite is a simple, pure Swift finite state machine. Only exlicitly allowed transitions between states are allowed, otherwise an error will be thrown.
-Version `2.0.0` supports Swift `2.2` and `3.0 Beta`, whereas Finite `3.0.0` only supports Swift `3.0`.
+Version `2.0.0` supports Swift `2.2` and `3.0 Beta`, whereas Finite `3.x.x` only supports Swift `3.0`.
 
 ## Installation
+
 EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
 
 ### Swift Package Manager
