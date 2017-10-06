@@ -2,6 +2,10 @@
 .DS_Store
 ._*
 
+# VS Code
+## Settings
+.vscode
+
 # Xcode
 ## Build generated
 .build/

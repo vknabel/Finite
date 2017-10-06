@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.3
+
+*Released: 2017-10-06*
+
+### Other Changes
+
+- Readme updates - @vknabel
+- Proven Swift 4.0 support - @vknabel
+
 ## 3.0.2
 
 *Released: 2016-09-26*

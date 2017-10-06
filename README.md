@@ -6,7 +6,11 @@
 # Finite
 
 Finite is a simple, pure Swift finite state machine. Only exlicitly allowed transitions between states are allowed, otherwise an error will be thrown.
-Version `2.0.0` supports Swift `2.2` and `3.0 Beta`, whereas Finite `3.x.x` only supports Swift `3.0`.
+
+| **Finite** | **Swift**            |
+|------------|----------------------|
+| `2.0.0`    | `2.2` and `3.0 Beta` |
+| `3.x.x`    | `3.0` and `4.0`      |
 
 ## Installation
 
@@ -46,26 +50,26 @@ It operates on a given type, where each value represents an internal state of th
 
 ```swift
 enum Test: Int {
-    case Saving, Fetching, Deleting
+    case saving, Fetching, Deleting
     case Ready, Fail
 }
 
-var machine = StateMachine<Test>(initial: .Ready) { c in
-    c.allow(from: [.Saving, .Fetching, .Deleting], to: [.Ready, .Fail])
-    c.allow(from: .Ready, to: [.Saving, .Fetching, .Deleting])
+var machine = StateMachine<Test>(initial: .ready) { c in
+    c.allow(from: [.saving, .fetching, .deleting], to: [.ready, .fail])
+    c.allow(from: .ready, to: [.saving, .fetching, .deleting])
 }
 ```
 
 It is possible to provide callbacks, that will be called once certain transitions will happen.
 
 ```swift
-machine.onTransitions(from: .Ready) {
+machine.onTransitions(from: .ready) {
     println("From Ready: show activity indicator")
 }
-machine.onTransitions(to: .Ready) {
+machine.onTransitions(to: .ready) {
     println("To Ready: hide activity indicator")
 }
-machine.onTransitions(to: .Saving) {
+machine.onTransitions(to: .saving) {
     println("To: save")
 }
 ```
@@ -73,18 +77,18 @@ machine.onTransitions(to: .Saving) {
 Once the `StateMachine` has been set up, you may trigger all transitions you have declared above.
 
 ```swift
-try machine.transition(to: .Saving) {
+try machine.transition(to: .saving) {
     println("Triggered: save")
 }
 
 // this will throw an error
-try machine.transition(to: .Fetching)
+try machine.transition(to: .fetching)
 ```
 
 ## Author
 
-Valentin Knabel, develop@vknabel.com
+Valentin Knabel, dev@vknabel.com
 
 ## License
 
-Finite is available under the MIT license. See the LICENSE file for more info.
+Finite is available under the [MIT](./LICENSE) license.
