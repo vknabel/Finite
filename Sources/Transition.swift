@@ -58,8 +58,8 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     }
     
     public var description: String {
-        let f = from != nil ? String(describing: from!) : "unknown"
-        let t = to != nil ? String(describing: to!) : "unknown"
+        let f = from != nil ? String(describing: from!) : "any"
+        let t = to != nil ? String(describing: to!) : "any"
         return "\(f) -> \(t)"
     }
 }
