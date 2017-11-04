@@ -70,7 +70,7 @@ public struct StateFlow<T: Hashable>: CustomStringConvertible {
         }.flatMap { (transform) -> String? in
             return transform.key.description
         }
-        if graph.count > 0  {
+        if graph.count > 0 {
             return graph.joined(separator: "\n")
         } else {
             return ""
