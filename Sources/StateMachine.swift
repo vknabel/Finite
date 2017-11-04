@@ -18,7 +18,7 @@ public enum TransitionError<T: Hashable>: Error {
 }
 
 /// Represents a state machine.
-public struct StateMachine<T: Hashable> {
+public struct StateMachine<T: Hashable>: CustomStringConvertible {
     
     /// An empty operation to be performed.
     public typealias Operation = () throws -> Void
@@ -106,6 +106,13 @@ public struct StateMachine<T: Hashable> {
         transitionHandlers[transition]?.append(op)
     }
     
+    /**
+    Returns the graph for the state machine
+    */
+    public var description: String {
+        let result = "digraph {\n" + "graph [rankdir=LR]\n" + configuration.description + "\n}\n"
+        return result
+    }
 }
 
 internal extension StateMachine {

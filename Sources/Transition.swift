@@ -14,7 +14,7 @@ There are three types of transitions:
 2. Relative Transitions have only one state set.
 3. Nil Transitions have none states set and will be ignored.
 */
-public struct Transition<T: Hashable>: Hashable {
+public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     
     /// Nil transitions will be ignored.
     public static var nilTransition: Transition<T> {
@@ -55,6 +55,12 @@ public struct Transition<T: Hashable>: Hashable {
     /// The hash value.
     public var hashValue: Int {
         return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
+    }
+    
+    public var description: String {
+        let f = from != nil ? String(describing: from!) : "unknown"
+        let t = to != nil ? String(describing: to!) : "unknown"
+        return "\(f) -> \(t)"
     }
 }
 
