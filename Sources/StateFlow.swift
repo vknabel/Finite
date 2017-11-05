@@ -7,7 +7,7 @@
 //
 
 /// Represents a configuration of a state machine.
-public struct StateFlow<T: Hashable> {
+public struct StateFlow<T: Hashable>: CustomStringConvertible {
     
     /// Filters wether a transition is allowed to be performed.
     public typealias TransitionFilter = (Transition<T>) -> Bool
@@ -58,6 +58,23 @@ public struct StateFlow<T: Hashable> {
             }
         }
         return false
+    }
+    
+    /**
+    Returns list of of transitions, sorted by the hash values of the
+    from node
+    */
+    public var description: String {
+        let graph = transitionFilters.sorted { (lhs, rhs) -> Bool in
+            lhs.key.hashValue < rhs.key.hashValue
+        }.flatMap { (transform) -> String? in
+            return transform.key.description
+        }
+        if graph.count > 0 {
+            return graph.joined(separator: "\n")
+        } else {
+            return ""
+        }
     }
 }
 
