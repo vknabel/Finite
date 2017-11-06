@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>StateMachine Struct Reference</title>
+    <title>StateMachine Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Struct/StateMachine" class="dashAnchor"></a>
 
-    <a title="StateMachine Struct Reference"></a>
+    <a title="StateMachine Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -21,6 +24,12 @@
           Finite Docs
         </a>
          (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -41,14 +50,14 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">Finite Reference</a>
       <img class="carat" src="../img/carat.png" />
-      StateMachine Struct Reference
+      StateMachine Structure Reference
     </p>
 
     <div class="content-wrapper">
       <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/TransitionError.html">TransitionError</a>
@@ -56,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StateFlow.html">StateFlow</a>
@@ -78,7 +87,7 @@
             <h1>StateMachine</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateMachine</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateMachine</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                 </div>
               </div>
@@ -94,9 +103,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V6Finite12StateMachine9Operation"></a>
+                    <a name="/s:6Finite12StateMachineV9Operationa"></a>
                     <a name="//apple_ref/swift/Alias/Operation" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V6Finite12StateMachine9Operation">Operation</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV9Operationa">Operation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -121,9 +130,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV6Finite12StateMachine5statex"></a>
+                    <a name="/s:6Finite12StateMachineV5statexv"></a>
                     <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV6Finite12StateMachine5statex">state</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV5statexv">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -148,9 +157,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachinecFT7initialx6configFRGVS_9StateFlowx_T__GS0_x_"></a>
+                    <a name="/s:6Finite12StateMachineVACyxGx7initial_yAA0B4FlowVyxGzc6configtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(initial:config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachinecFT7initialx6configFRGVS_9StateFlowx_T__GS0_x_">init(initial:config:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineVACyxGx7initial_yAA0B4FlowVyxGzc6configtcfc">init(initial:config:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,7 +191,6 @@
                               <td>
                                 <div>
                                   <p>The initial state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -195,7 +203,6 @@
                               <td>
                                 <div>
                                   <p>A configurator for an instance of StateFlow.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -208,9 +215,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachinecFT7initialx9stateFlowGVS_9StateFlowx__GS0_x_"></a>
+                    <a name="/s:6Finite12StateMachineVACyxGx7initial_AA0B4FlowVyxG05stateE0tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(initial:stateFlow:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachinecFT7initialx9stateFlowGVS_9StateFlowx__GS0_x_">init(initial:stateFlow:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineVACyxGx7initial_AA0B4FlowVyxG05stateE0tcfc">init(initial:stateFlow:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,7 +249,6 @@
                               <td>
                                 <div>
                                   <p>The initial state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -255,7 +261,6 @@
                               <td>
                                 <div>
                                   <p>The state flow to be used as configuration.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -268,9 +273,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine10transitionFzT2tox10completionGSqFzT_T___T_"></a>
+                    <a name="/s:6Finite12StateMachineV10transitionyx2to_yyKcSg10completiontKF"></a>
                     <a name="//apple_ref/swift/Method/transition(to:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine10transitionFzT2tox10completionGSqFzT_T___T_">transition(to:completion:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV10transitionyx2to_yyKcSg10completiontKF">transition(to:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -279,7 +284,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Triggers a transition to a given state and invokes a callback on completion.</p>
-
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Either TransitionError or rethrows underlying errors.
@@ -291,7 +295,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:V6Finite12StateMachine9Operation">Operation</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -308,7 +312,6 @@
                               <td>
                                 <div>
                                   <p>The targeted state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -321,7 +324,6 @@
                               <td>
                                 <div>
                                   <p>An optional callback. Will be only be called on success and after all defined transition handlers were invoked.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -331,7 +333,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>Wether the transition could be performed or not.</p>
-
                       </div>
                     </section>
                   </div>
@@ -339,9 +340,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine6allowsFT2tox_Sb"></a>
+                    <a name="/s:6Finite12StateMachineV6allowsSbx2to_tF"></a>
                     <a name="//apple_ref/swift/Method/allows(to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine6allowsFT2tox_Sb">allows(to:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV6allowsSbx2to_tF">allows(to:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -373,7 +374,6 @@
                               <td>
                                 <div>
                                   <p>The targeted state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -383,7 +383,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>true if allowed else false.</p>
-
                       </div>
                     </section>
                   </div>
@@ -391,9 +390,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine13onTransitionsFT10transitionGVS_10Transitionx_7performFzT_T__T_"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitionsyAA10TransitionVyxG10transition_yyKc7performtF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(transition:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine13onTransitionsFT10transitionGVS_10Transitionx_7performFzT_T__T_">onTransitions(transition:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyAA10TransitionVyxG10transition_yyKc7performtF">onTransitions(transition:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -408,7 +407,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:V6Finite12StateMachine9Operation">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -425,7 +424,6 @@
                               <td>
                                 <div>
                                   <p>The most specific transition.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -438,12 +436,38 @@
                               <td>
                                 <div>
                                   <p>The operation the be performed.</p>
-
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Finite12StateMachineV11descriptionSSv"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Finite12StateMachineV11descriptionSSv">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the graph for the state machine</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -455,9 +479,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine13onTransitionsFT4fromx2tox7performFzT_T__T_"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitionsyx4from_x2toyyKc7performtF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(from:to:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine13onTransitionsFT4fromx2tox7performFzT_T__T_">onTransitions(from:to:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx4from_x2toyyKc7performtF">onTransitions(from:to:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -472,7 +496,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:V6Finite12StateMachine9Operation">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -489,7 +513,6 @@
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -502,7 +525,6 @@
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -515,7 +537,6 @@
                               <td>
                                 <div>
                                   <p>The operation the be performed.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -528,9 +549,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine13onTransitionsFT4fromx7performFzT_T__T_"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitionsyx4from_yyKc7performtF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(from:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine13onTransitionsFT4fromx7performFzT_T__T_">onTransitions(from:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx4from_yyKc7performtF">onTransitions(from:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -545,7 +566,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:V6Finite12StateMachine9Operation">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -562,7 +583,6 @@
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -575,7 +595,6 @@
                               <td>
                                 <div>
                                   <p>The operation the be performed.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -588,9 +607,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite12StateMachine13onTransitionsFT2tox7performFzT_T__T_"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitionsyx2to_yyKc7performtF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(to:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite12StateMachine13onTransitionsFT2tox7performFzT_T__T_">onTransitions(to:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx2to_yyKc7performtF">onTransitions(to:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -605,7 +624,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:V6Finite12StateMachine9Operation">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -622,7 +641,6 @@
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -635,7 +653,6 @@
                               <td>
                                 <div>
                                   <p>The operation the be performed.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -653,8 +670,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-09-26)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-11-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

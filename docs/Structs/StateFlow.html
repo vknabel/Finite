@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>StateFlow Struct Reference</title>
+    <title>StateFlow Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Struct/StateFlow" class="dashAnchor"></a>
 
-    <a title="StateFlow Struct Reference"></a>
+    <a title="StateFlow Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -21,6 +24,12 @@
           Finite Docs
         </a>
          (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -41,14 +50,14 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">Finite Reference</a>
       <img class="carat" src="../img/carat.png" />
-      StateFlow Struct Reference
+      StateFlow Structure Reference
     </p>
 
     <div class="content-wrapper">
       <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/TransitionError.html">TransitionError</a>
@@ -56,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StateFlow.html">StateFlow</a>
@@ -78,7 +87,7 @@
             <h1>StateFlow</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateFlow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateFlow</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                 </div>
               </div>
@@ -94,9 +103,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V6Finite9StateFlow16TransitionFilter"></a>
+                    <a name="/s:6Finite9StateFlowV16TransitionFiltera"></a>
                     <a name="//apple_ref/swift/Alias/TransitionFilter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -121,9 +130,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V6Finite9StateFlow12Configurator"></a>
+                    <a name="/s:6Finite9StateFlowV12Configuratora"></a>
                     <a name="//apple_ref/swift/Alias/Configurator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V6Finite9StateFlow12Configurator">Configurator</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV12Configuratora">Configurator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -148,9 +157,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlowcFT6configFRGS0_x_T__GS0_x_"></a>
+                    <a name="/s:6Finite9StateFlowVACyxGyADzc6config_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlowcFT6configFRGS0_x_T__GS0_x_">init(config:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowVACyxGyADzc6config_tcfc">init(config:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -165,7 +174,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow12Configurator">Configurator</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV12Configuratora">Configurator</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -182,7 +191,6 @@
                               <td>
                                 <div>
                                   <p>A function that mutates the constructed instance.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -195,9 +203,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlowcFT_GS0_x_"></a>
+                    <a name="/s:6Finite9StateFlowVACyxGycfc"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlowcFT_GS0_x_">init()</a>
+                    <a class="token" href="#/s:6Finite9StateFlowVACyxGycfc">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -222,9 +230,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT10transitionGVS_10Transitionx_6filterGSqFGS1_x_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowyAA10TransitionVyxG10transition_SbAGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(transition:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT10transitionGVS_10Transitionx_6filterGSqFGS1_x_Sb__T_">allow(transition:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowyAA10TransitionVyxG10transition_SbAGcSg6filtertF">allow(transition:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -239,7 +247,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -256,7 +264,6 @@
                               <td>
                                 <div>
                                   <p>The transition allowing less-equal transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -269,7 +276,6 @@
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -282,9 +288,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow6allowsFGVS_10Transitionx_Sb"></a>
+                    <a name="/s:6Finite9StateFlowV6allowsSbAA10TransitionVyxGF"></a>
                     <a name="//apple_ref/swift/Method/allows(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow6allowsFGVS_10Transitionx_Sb">allows(_:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV6allowsSbAA10TransitionVyxGF">allows(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -317,7 +323,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The transition to be tested.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -327,7 +332,34 @@ Invokes defined transition filters until one returned true or a transition is un
                       <div>
                         <h4>Return Value</h4>
                         <p>Returns true if a more-equal transition is allowed.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Finite9StateFlowV11descriptionSSv"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Finite9StateFlowV11descriptionSSv">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns list of of transitions, sorted by the hash values of the
+from node</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -339,9 +371,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromx6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowyx4from_SbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromx6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowyx4from_SbAA10TransitionVyxGcSg6filtertF">allow(from:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -356,7 +388,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -373,7 +405,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -386,7 +417,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -399,9 +429,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT2tox6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowyx2to_SbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT2tox6filterGSqFGVS_10Transitionx_Sb__T_">allow(to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowyx2to_SbAA10TransitionVyxGcSg6filtertF">allow(to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -416,7 +446,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -433,7 +463,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -446,7 +475,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -459,9 +487,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromx2tox6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowyx4from_x2toSbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromx2tox6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowyx4from_x2toSbAA10TransitionVyxGcSg6filtertF">allow(from:to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -476,7 +504,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -493,7 +521,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -506,7 +533,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -519,7 +545,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -532,9 +557,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromGSax_6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowySayxG4from_SbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromGSax_6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowySayxG4from_SbAA10TransitionVyxGcSg6filtertF">allow(from:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -549,7 +574,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -566,7 +591,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All source states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -579,7 +603,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -592,9 +615,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromGSax_2tox6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowySayxG4from_x2toSbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromGSax_2tox6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowySayxG4from_x2toSbAA10TransitionVyxGcSg6filtertF">allow(from:to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -609,7 +632,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -626,7 +649,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All source states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -639,7 +661,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -652,7 +673,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -665,9 +685,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowySayxG2to_SbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_">allow(to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowySayxG2to_SbAA10TransitionVyxGcSg6filtertF">allow(to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -682,7 +702,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -699,7 +719,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All target states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -712,7 +731,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -725,9 +743,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromx2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowyx4from_SayxG2toSbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromx2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowyx4from_SayxG2toSbAA10TransitionVyxGcSg6filtertF">allow(from:to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -742,7 +760,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -759,7 +777,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -772,7 +789,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All target states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -785,7 +801,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -798,9 +813,9 @@ Invokes defined transition filters until one returned true or a transition is un
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite9StateFlow5allowFT4fromGSax_2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_"></a>
+                    <a name="/s:6Finite9StateFlowV5allowySayxG4from_AE2toSbAA10TransitionVyxGcSg6filtertF"></a>
                     <a name="//apple_ref/swift/Method/allow(from:to:filter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite9StateFlow5allowFT4fromGSax_2toGSax_6filterGSqFGVS_10Transitionx_Sb__T_">allow(from:to:filter:)</a>
+                    <a class="token" href="#/s:6Finite9StateFlowV5allowySayxG4from_AE2toSbAA10TransitionVyxGcSg6filtertF">allow(from:to:filter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -815,7 +830,7 @@ Invokes defined transition filters until one returned true or a transition is un
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:V6Finite9StateFlow16TransitionFilter">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">allow</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">to</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html#/s:6Finite9StateFlowV16TransitionFiltera">TransitionFilter</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -832,7 +847,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All source states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -845,7 +859,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>All target states.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -858,7 +871,6 @@ Invokes defined transition filters until one returned true or a transition is un
                               <td>
                                 <div>
                                   <p>An optional filter for transitions.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -876,8 +888,8 @@ Invokes defined transition filters until one returned true or a transition is un
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-09-26)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-11-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Transition Struct Reference</title>
+    <title>Transition Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Struct/Transition" class="dashAnchor"></a>
 
-    <a title="Transition Struct Reference"></a>
+    <a title="Transition Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -21,6 +24,12 @@
           Finite Docs
         </a>
          (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -41,14 +50,14 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">Finite Reference</a>
       <img class="carat" src="../img/carat.png" />
-      Transition Struct Reference
+      Transition Structure Reference
     </p>
 
     <div class="content-wrapper">
       <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/TransitionError.html">TransitionError</a>
@@ -56,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/StateFlow.html">StateFlow</a>
@@ -78,7 +87,7 @@
             <h1>Transition</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Transition</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Transition</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                 </div>
               </div>
@@ -101,9 +110,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV6Finite10Transition13nilTransitionGS0_x_"></a>
+                    <a name="/s:6Finite10TransitionV03nilB0ACyxGvZ"></a>
                     <a name="//apple_ref/swift/Variable/nilTransition" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV6Finite10Transition13nilTransitionGS0_x_">nilTransition</a>
+                    <a class="token" href="#/s:6Finite10TransitionV03nilB0ACyxGvZ">nilTransition</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,9 +137,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV6Finite10Transition4fromGSqx_"></a>
+                    <a name="/s:6Finite10TransitionV4fromxSgv"></a>
                     <a name="//apple_ref/swift/Property/from" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV6Finite10Transition4fromGSqx_">from</a>
+                    <a class="token" href="#/s:6Finite10TransitionV4fromxSgv">from</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -155,9 +164,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV6Finite10Transition2toGSqx_"></a>
+                    <a name="/s:6Finite10TransitionV2toxSgv"></a>
                     <a name="//apple_ref/swift/Property/to" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV6Finite10Transition2toGSqx_">to</a>
+                    <a class="token" href="#/s:6Finite10TransitionV2toxSgv">to</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,9 +191,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV6Finite10TransitioncFT4fromGSqx_2toGSqx__GS0_x_"></a>
+                    <a name="/s:6Finite10TransitionVACyxGxSg4from_AE2totcfc"></a>
                     <a name="//apple_ref/swift/Method/init(from:to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV6Finite10TransitioncFT4fromGSqx_2toGSqx__GS0_x_">init(from:to:)</a>
+                    <a class="token" href="#/s:6Finite10TransitionVACyxGxSg4from_AE2totcfc">init(from:to:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -216,7 +225,6 @@ There are three types of transitions:</p>
                               <td>
                                 <div>
                                   <p>The source state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -229,7 +237,6 @@ There are three types of transitions:</p>
                               <td>
                                 <div>
                                   <p>The target state.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -242,9 +249,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV6Finite10Transition18generalTransitionsGVs3SetGS0_x__"></a>
+                    <a name="/s:6Finite10TransitionV18generalTransitionss3SetVyACyxGGv"></a>
                     <a name="//apple_ref/swift/Property/generalTransitions" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV6Finite10Transition18generalTransitionsGVs3SetGS0_x__">generalTransitions</a>
+                    <a class="token" href="#/s:6Finite10TransitionV18generalTransitionss3SetVyACyxGGv">generalTransitions</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,6 +274,11 @@ There are three types of transitions:</p>
                         <h4>Return Value</h4>
                         <p>All general transitions.</p>
 
+<ul>
+<li>Generals of an absolute transition is itself and relative transitions.</li>
+<li>Generals of a relative transition is only itself.</li>
+<li>Nil transitions have no generals.</li>
+</ul>
                       </div>
                     </section>
                   </div>
@@ -274,9 +286,9 @@ There are three types of transitions:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV6Finite10Transition9hashValueSi"></a>
+                    <a name="/s:6Finite10TransitionV9hashValueSiv"></a>
                     <a name="//apple_ref/swift/Property/hashValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV6Finite10Transition9hashValueSi">hashValue</a>
+                    <a class="token" href="#/s:6Finite10TransitionV9hashValueSiv">hashValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -298,6 +310,32 @@ There are three types of transitions:</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSv"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSv">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -306,8 +344,8 @@ There are three types of transitions:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-09-26)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-11-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
