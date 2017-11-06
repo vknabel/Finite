@@ -14,7 +14,7 @@ Finite is a simple, pure Swift finite state machine. Only exlicitly allowed tran
 
 ## Installation
 
-EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
+Finite has no external dependencies and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
 
 ### Swift Package Manager
 
@@ -24,7 +24,7 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 3)
+        .Package(url: "https://github.com/vknabel/Finite.git", majorVersion: 3)
     ]
 )
 ```
@@ -32,7 +32,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject"
+github "vknabel/Finite"
 ```
 
 ### CocoaPods
@@ -41,7 +41,7 @@ github "vknabel/EasyInject"
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject'
+pod 'Finite'
 ```
 
 ## Introduction
@@ -50,8 +50,8 @@ It operates on a given type, where each value represents an internal state of th
 
 ```swift
 enum Test: Int {
-    case saving, Fetching, Deleting
-    case Ready, Fail
+    case saving, fetching, deleting
+    case ready, fail
 }
 
 var machine = StateMachine<Test>(initial: .ready) { c in
