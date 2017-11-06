@@ -25,14 +25,14 @@ try machine.transition(to: .Saving) {
     print("Triggered: save")
 }
 
-machine.state.rawValue
+machine.state
 
 
 enum State<T: Hashable>: Hashable {
     case Ready
     case Error
     case Busy(T)
-    
+
     var hashValue: Int {
         switch self {
         case .Ready:
@@ -43,7 +43,7 @@ enum State<T: Hashable>: Hashable {
             return 2 + b.hashValue
         }
     }
-    
+
     var isBusy: Bool {
         switch self {
         case .Busy(_):
@@ -54,7 +54,7 @@ enum State<T: Hashable>: Hashable {
     }
 }
 
-func ==<T: Hashable>(lhs: State<T>, rhs: State<T>) -> Bool {
+func ==<T>(lhs: State<T>, rhs: State<T>) -> Bool {
     switch (lhs, rhs) {
     case (.Ready, .Ready):
         return true
@@ -80,10 +80,10 @@ var scnd = StateMachine<State<Process>>(initial: .Ready) { flow in
     flow.allow(from: .Ready) { t in
         return t.to?.isBusy ?? false
     }
+    flow.allow(transition: Transition(from: nil, to: .Busy(.Deleting)))
 }
-
-
-
-
-
-
+do {
+    try scnd.transition(to: State<Process>.Busy(.Deleting))
+} catch {
+    print(error)
+}
