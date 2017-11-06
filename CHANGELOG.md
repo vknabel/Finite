@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.0
+
+*Not released yet*
+
+### Additions
+
+- Introduced graphviz compatible descriptions - @snofla
+
 ## 3.0.3
 
 *Released: 2017-10-06*

@@ -89,6 +89,8 @@ try machine.transition(to: .fetching)
 
 Valentin Knabel, dev@vknabel.com
 
+Special thanks to @snofla for allowing to export state machines to graphviz.
+
 ## License
 
 Finite is available under the [MIT](./LICENSE) license.
