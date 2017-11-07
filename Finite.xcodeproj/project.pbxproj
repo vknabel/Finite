@@ -21,8 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		BA6718B11FB2563300E575DC /* SwiftShim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6718B01FB2563300E575DC /* SwiftShim.swift */; };
 		OBJ_28 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_34 /* FiniteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* FiniteTests.swift */; };
 		OBJ_35 /* StateFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* StateFlowTests.swift */; };
 		OBJ_36 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* StateMachine.swift */; };
 		OBJ_37 /* TransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* TransitionTests.swift */; };
@@ -50,10 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA6718B01FB2563300E575DC /* SwiftShim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShim.swift; sourceTree = "<group>"; };
 		"Finite::Finite::Product" /* Finite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Finite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Finite::FiniteTests::Product" /* FiniteTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiniteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
-		OBJ_13 /* FiniteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiniteTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* StateFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateFlowTests.swift; sourceTree = "<group>"; };
 		OBJ_15 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		OBJ_16 /* TransitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTests.swift; sourceTree = "<group>"; };
@@ -95,10 +95,10 @@
 		OBJ_12 /* FiniteTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* FiniteTests.swift */,
 				OBJ_14 /* StateFlowTests.swift */,
 				OBJ_15 /* StateMachine.swift */,
 				OBJ_16 /* TransitionTests.swift */,
+				BA6718B01FB2563300E575DC /* SwiftShim.swift */,
 			);
 			name = FiniteTests;
 			path = Tests/FiniteTests;
@@ -228,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_34 /* FiniteTests.swift in Sources */,
+				BA6718B11FB2563300E575DC /* SwiftShim.swift in Sources */,
 				OBJ_35 /* StateFlowTests.swift in Sources */,
 				OBJ_36 /* StateMachine.swift in Sources */,
 				OBJ_37 /* TransitionTests.swift in Sources */,
