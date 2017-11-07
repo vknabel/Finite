@@ -8,15 +8,19 @@
 
 import XCTest
 
-protocol LinuxTestCase {
-    associatedtype TestCase: XCTestCase
-    static var allTests: [(String, (TestCase) -> () -> ())] { get }
-}
+#if os(macOS)
+public typealias XCTestCaseClosure = (XCTestCase) throws -> Void
+public typealias XCTestCaseEntry = (testCaseClass: XCTestCase.Type, allTests: [(String, XCTestCaseClosure)])
 
-#if os(Linux)
-public func allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(TransitionTests.allTests)
-    ]
+public func testCase<T: XCTestCase>(_ allTests: [(String, (T) -> () -> Void)]) -> XCTestCaseEntry {
+    return (T.self, [])
 }
 #endif
+
+public func allTests() -> [XCTestCaseEntry] {
+    return [
+        testCase(TransitionTests.allTests),
+        testCase(StateFlowTests.allTests),
+        testCase(StateMachineTests.allTests),
+    ]
+}

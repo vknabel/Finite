@@ -15,20 +15,20 @@ There are three types of transitions:
 3. Nil Transitions have none states set and will be ignored.
 */
 public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
-    
+
     /// Nil transitions will be ignored.
     public static var nilTransition: Transition<T> {
         return Transition<T>(from: nil, to: nil)
     }
-    
+
     /// The source state.
     public var from: T?
     /// The targeted state.
     public var to: T?
-    
+
     /**
     Constructs an absolute, relative or nil transition.
-    
+
     - parameter from: The source state.
     - parameter to: The target state.
     */
@@ -37,11 +37,11 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
         self.to = to
     }
 
-    /** 
+    /**
     All more general transitions include itself except the nil transition.
-    
+
     - returns: All general transitions.
-        
+
         - Generals of an absolute transition is itself and relative transitions.
         - Generals of a relative transition is only itself.
         - Nil transitions have no generals.
@@ -51,12 +51,12 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
         generals.remove(.nilTransition)
         return generals
     }
-    
+
     /// The hash value.
     public var hashValue: Int {
         return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
     }
-    
+
     public var description: String {
         let f = from != nil ? String(describing: from!) : "any"
         let t = to != nil ? String(describing: to!) : "any"

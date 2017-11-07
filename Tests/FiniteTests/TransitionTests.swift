@@ -9,7 +9,7 @@
 import XCTest
 import Finite
 
-class TransitionTests: XCTestCase, LinuxTestCase {
+class TransitionTests: XCTestCase {
 
     enum Test {
         case S0, S1
