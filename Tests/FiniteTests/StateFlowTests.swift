@@ -306,4 +306,5 @@ class StateFlowTests: XCTestCase {
             }
         }
     }
+
 }

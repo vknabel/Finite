@@ -94,5 +94,5 @@ class TransitionTests: XCTestCase {
         XCTAssertEqual(abst.description, "s0 -> s1")
         XCTAssertEqual(abstr.description, "s1 -> s0")
     }
-}
 
+}

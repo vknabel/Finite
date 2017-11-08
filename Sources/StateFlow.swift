@@ -15,7 +15,7 @@ public struct StateFlow<T: Hashable>: CustomStringConvertible {
     public typealias Configurator = (inout StateFlow<T>) -> Void
 
     /// Empty array means transition is allowed. Once there is a single filter, all previous unconditioned transitions are omitted.
-    private var transitionFilters: [Transition<T>:TransitionFilter?] = [:]
+    private var transitionFilters: [Transition<T>: TransitionFilter?] = [:]
 
     /**
     Creates a new instance that can be mutated to be stored immutable.
@@ -27,7 +27,7 @@ public struct StateFlow<T: Hashable>: CustomStringConvertible {
     }
 
     /// Creates a new instance to be used mutable.
-    public init() { }
+    public init() {}
 
     /**
     Allows all less-equal general transitions to be triggered.
@@ -177,4 +177,3 @@ public extension StateFlow {
     }
 
 }
-
