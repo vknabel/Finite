@@ -20,7 +20,7 @@ class StateFlowTests: XCTestCase {
         ("testAllowsAbsoluteTransitionWhenToRelativeIsAllowed", testAllowsAbsoluteTransitionWhenToRelativeIsAllowed),
         ("testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously", testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously)
     ]
-    
+
     enum Test {
         case s0, s1, s2
     }
