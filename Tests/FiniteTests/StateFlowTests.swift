@@ -10,7 +10,10 @@ import Finite
 
 class StateFlowTests: XCTestCase {
     static var allTests = [
+        ("testEmptyDeniesEverything", testEmptyDeniesEverything),
+        ("testEmptyDeniesEverythingForConfig", testEmptyDeniesEverythingForConfig),
         ("testAllowsAbsoluteTransitionsWhenAddedPreviously", testAllowsAbsoluteTransitionsWhenAddedPreviously),
+        ("testAllowsAbsoluteTransitionsWhenAddedPreviouslyUsingEmptyInitializer", testAllowsAbsoluteTransitionsWhenAddedPreviouslyUsingEmptyInitializer),
         ("testDoesNotAllowTransitionsToSameStateByDefault", testDoesNotAllowTransitionsToSameStateByDefault),
         ("testDoesNotAllowUnrelatedAbsoluteTransitions", testDoesNotAllowUnrelatedAbsoluteTransitions),
         ("testAllowsFromRelativeTransitionsWhenAddedPreviously", testAllowsFromRelativeTransitionsWhenAddedPreviously),
@@ -18,7 +21,19 @@ class StateFlowTests: XCTestCase {
         ("testDoesNotAllowNilTransitionsWhenAddedPreviously", testDoesNotAllowNilTransitionsWhenAddedPreviously),
         ("testAllowsAbsoluteTransitionWhenFromRelativeIsAllowed", testAllowsAbsoluteTransitionWhenFromRelativeIsAllowed),
         ("testAllowsAbsoluteTransitionWhenToRelativeIsAllowed", testAllowsAbsoluteTransitionWhenToRelativeIsAllowed),
-        ("testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously", testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously)
+        ("testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously", testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously),
+        ("testAllowsAlwaysSucceedingFilter", testAllowsAlwaysSucceedingFilter),
+        ("testDeniesAlwaysDenyingFilter", testDeniesAlwaysDenyingFilter),
+        ("testDescriptionWithContents", testDescriptionWithContents),
+        ("testDescriptionWithoutContents", testDescriptionWithoutContents),
+        ("testAllowingConvenienceFromRelativeTransitionHelper", testAllowingConvenienceFromRelativeTransitionHelper),
+        ("testAllowingMultipleConvenienceFromRelativeTransitionHelper", testAllowingMultipleConvenienceFromRelativeTransitionHelper),
+        ("testAllowingConvenienceToRelativeTransitionHelper", testAllowingConvenienceToRelativeTransitionHelper),
+        ("testAllowingMultipleConvenienceToRelativeTransitionHelper", testAllowingMultipleConvenienceToRelativeTransitionHelper),
+        ("testAllowingMultipleConvenienceFromAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromAbsoluteTransitionHelper),
+        ("testAllowingMultipleConvenienceToAbsoluteTransitionHelper", testAllowingMultipleConvenienceToAbsoluteTransitionHelper),
+        ("testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper),
+        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState)
     ]
 
     enum Test {
@@ -31,16 +46,83 @@ class StateFlowTests: XCTestCase {
         sut = nil
     }
 
+    func testEmptyDeniesEverything() {
+        sut = StateFlow()
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testEmptyDeniesEverythingForConfig() {
+        prepare()
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
     func testAllowsAbsoluteTransitionsWhenAddedPreviously() {
         let transition = Transition<Test>(from: .s0, to: .s1)
         prepare(allowing: transition)
-        XCTAssertTrue(sut.allows(transition))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testAllowsAbsoluteTransitionsWhenAddedPreviouslyUsingEmptyInitializer() {
+        let transition = Transition<Test>(from: .s0, to: .s1)
+        sut = StateFlow()
+        sut.allow(transition: transition)
+
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
     }
 
     func testDoesNotAllowTransitionsToSameStateByDefault() {
         prepare()
-        let transition = Transition<Test>(from: .s0, to: .s0)
-        XCTAssertFalse(sut.allows(transition))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
     }
 
     func testDoesNotAllowUnrelatedAbsoluteTransitions() {
@@ -80,6 +162,141 @@ class StateFlowTests: XCTestCase {
     func testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously() {
         prepare(allowing: .nilTransition)
         XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+    }
+
+    func testAllowsAlwaysSucceedingFilter() {
+        sut = StateFlow()
+        sut.allow(from: .s0) { _ in true }
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s0)))
+    }
+
+    func testDeniesAlwaysDenyingFilter() {
+        sut = StateFlow()
+        sut.allow(from: .s0) { _ in false }
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s2)))
+    }
+
+    func testDescriptionWithContents() {
+        sut = StateFlow()
+        sut.allow(from: [.s0, .s1])
+        sut.allow(from: .s1, to: .s2)
+        XCTAssertEqual(sut.description, """
+        s0 -> any
+        s1 -> any
+        s1 -> s2
+        """)
+    }
+
+    func testDescriptionWithoutContents() {
+        sut = StateFlow()
+        XCTAssertEqual(sut.description, "")
+    }
+
+    func testAllowingConvenienceFromRelativeTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(from: .s2)
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+    }
+
+    func testAllowingMultipleConvenienceFromRelativeTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(from: [.s1, .s2])
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+    }
+
+    func testAllowingConvenienceToRelativeTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(to: .s2)
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+    }
+
+    func testAllowingMultipleConvenienceToRelativeTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(to: [.s1, .s2])
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testAllowingMultipleConvenienceFromAbsoluteTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(from: [.s0, .s1], to: .s2)
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testAllowingMultipleConvenienceToAbsoluteTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(from: .s0, to: [.s1, .s2])
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper() {
+        sut = StateFlow()
+        sut.allow(from: [.s0, .s1], to: [.s1, .s2])
+        XCTAssertFalse(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertFalse(sut.allows(Transition(from: .s2, to: .s2)))
+    }
+
+    func testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState() {
+        sut = StateFlow()
+        sut.allow(from: [.s0, .s1, .s2], to: [.s0, .s1, .s2])
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s0, to: .s2)))
+
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s1, to: .s2)))
+
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s0)))
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s1)))
+        XCTAssertTrue(sut.allows(Transition(from: .s2, to: .s2)))
     }
 
     private func prepare(allowing transitions: Transition<Test>...) {
