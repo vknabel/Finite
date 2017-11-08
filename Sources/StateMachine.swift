@@ -19,26 +19,26 @@ public enum TransitionError<T: Hashable>: Error {
 
 /// Represents a state machine.
 public struct StateMachine<T: Hashable>: CustomStringConvertible {
-    
+
     /// An empty operation to be performed.
     public typealias Operation = () throws -> Void
     public typealias TransitionFilter = StateFlow<T>.TransitionFilter
-    
+
     /// Stores the current state.
     internal var currentState: T
     /// Stores the immutable state flow.
     internal let configuration: StateFlow<T>
     /// Stores all transition handlers associated to transitions.
     internal var transitionHandlers: [Transition<T>:[Operation]] = [:]
-    
+
     /// The current state of the machine.
     public var state: T {
         return currentState
     }
-    
-    /** 
+
+    /**
     Instantiates a state machine by configuring the StateFlow instance.
-    
+
     - parameter initial: The initial state.
     - parameter config: A configurator for an instance of StateFlow.
     */
@@ -46,10 +46,10 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
         self.currentState = initial
         self.configuration = StateFlow<T>(config: config)
     }
-    
+
     /**
     Instantiates a state machine by passing an instance of StateFlow.
-    
+
     - parameter initial: The initial state.
     - parameter stateFlow: The state flow to be used as configuration.
     */
@@ -57,10 +57,10 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
         self.currentState = initial
         self.configuration = stateFlow
     }
-    
+
     /**
     Triggers a transition to a given state and invokes a callback on completion.
-    
+
     - parameter to: The targeted state.
     - parameter completion: An optional callback. Will be only be called on success and after all defined transition handlers were invoked.
     - throws: Either TransitionError or rethrows underlying errors.
@@ -82,20 +82,20 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
             throw TransitionError.denied(from: currentState, to: to)
         }
     }
-    
+
     /**
     Returns wether transitioning to a state is allowed.
-    
+
     - parameter to: The targeted state.
     - returns: true if allowed else false.
     */
     public func allows(to: T) -> Bool {
         return configuration.allows(self.transition(to))
     }
-    
+
     /**
     Appends a transition handler for all more-equal general transitions.
-    
+
     - parameter transition: The most specific transition.
     - parameter perform: The operation the be performed.
     */
@@ -105,7 +105,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
         }
         transitionHandlers[transition]?.append(op)
     }
-    
+
     /**
     Returns the graph for the state machine
     */
@@ -130,10 +130,10 @@ internal extension StateMachine {
 }
 
 public extension StateMachine {
-    
+
     /**
     Appends a transition handler for all more-equal general transitions.
-    
+
     - parameter from: The source state.
     - parameter to: The target state.
     - parameter perform: The operation the be performed.
@@ -145,10 +145,10 @@ public extension StateMachine {
         }
         transitionHandlers[transition]?.append(op)
     }
-    
+
     /**
     Appends a transition handler for all more-equal general transitions.
-    
+
     - parameter from: The source state.
     - parameter perform: The operation the be performed.
     */
@@ -159,10 +159,10 @@ public extension StateMachine {
         }
         transitionHandlers[transition]?.append(op)
     }
-    
+
     /**
     Appends a transition handler for all more-equal general transitions.
-    
+
     - parameter to: The target state.
     - parameter perform: The operation the be performed.
     */
@@ -173,5 +173,5 @@ public extension StateMachine {
         }
         transitionHandlers[transition]?.append(op)
     }
-    
+
 }

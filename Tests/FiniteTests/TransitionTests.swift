@@ -9,10 +9,10 @@
 import XCTest
 import Finite
 
-class TransitionTests: XCTestCase, LinuxTestCase {
+class TransitionTests: XCTestCase {
 
     enum Test {
-        case S0, S1
+        case s0, s1
     }
 
     static var allTests = [
@@ -24,13 +24,21 @@ class TransitionTests: XCTestCase, LinuxTestCase {
         ("testGeneral", testGeneral)
     ]
 
-    let nilt = Transition<Test>.nilTransition
-    let relft = Transition<Test>(from: Test.S0, to: nil)
-    let reltt = Transition<Test>(from: nil, to: Test.S1)
-    let abst = Transition<Test>(from: Test.S0, to: Test.S1)
-    let abstr = Transition<Test>(from: Test.S1, to: Test.S0)
-    var ts: [Transition<Test>] {
+    var nilt: Transition<Test>!
+    var relft: Transition<Test>!
+    var reltt: Transition<Test>!
+    var abst: Transition<Test>!
+    var abstr: Transition<Test>!
+    var ts: [Transition<Test>]! {
         return [nilt, relft, reltt, abst, abstr]
+    }
+
+    override func setUp() {
+        nilt = Transition<Test>.nilTransition
+        relft = Transition<Test>(from: Test.s0, to: nil)
+        reltt = Transition<Test>(from: nil, to: Test.s1)
+        abst = Transition<Test>(from: Test.s0, to: Test.s1)
+        abstr = Transition<Test>(from: Test.s1, to: Test.s0)
     }
 
     func testAbsolute() {
@@ -79,5 +87,12 @@ class TransitionTests: XCTestCase, LinuxTestCase {
         XCTAssertEqual(abst.generalTransitions, [abst, relft, reltt], "Absolute transition generals")
     }
 
+    func testDescription() {
+        XCTAssertEqual(nilt.description, "any -> any")
+        XCTAssertEqual(relft.description, "s0 -> any")
+        XCTAssertEqual(reltt.description, "any -> s1")
+        XCTAssertEqual(abst.description, "s0 -> s1")
+        XCTAssertEqual(abstr.description, "s1 -> s0")
+    }
 }
 
