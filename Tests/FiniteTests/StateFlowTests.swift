@@ -183,11 +183,14 @@ class StateFlowTests: XCTestCase {
         sut = StateFlow()
         sut.allow(from: [.s0, .s1])
         sut.allow(from: .s1, to: .s2)
-        XCTAssertEqual(sut.description, """
-        s0 -> any
-        s1 -> any
-        s1 -> s2
-        """)
+        XCTAssertEqual(sut.description, [
+            Transition<Test>(from: .s0, to: nil),
+            Transition<Test>(from: .s1, to: nil),
+            Transition<Test>(from: .s1, to: .s2),
+        ]
+            .map { $0.description }
+            .joined(separator: "\n")
+        )
     }
 
     func testDescriptionWithoutContents() {
