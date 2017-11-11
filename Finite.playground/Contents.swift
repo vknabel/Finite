@@ -3,25 +3,25 @@
 import Finite
 
 enum Test: Int {
-    case Saving, Fetching, Deleting
-    case Ready, Fail
+    case saving, fetching, deleting
+    case ready, fail
 }
 
-var machine = StateMachine<Test>(initial: .Ready) { c in
-    c.allow(from: [.Saving, .Fetching, .Deleting], to: [.Ready, .Fail])
-    c.allow(from: .Ready, to: [.Saving, .Fetching, .Deleting])
+var machine = StateMachine<Test>(initial: .ready) { c in
+    c.allow(from: [.saving, .fetching, .deleting], to: [.ready, .fail])
+    c.allow(from: .ready, to: [.saving, .fetching, .deleting])
 }
 
-machine.onTransitions(from: .Ready) {
-    print("From Ready: show activity indicator")
+machine.onTransitions(from: .ready) {
+    print("From ready: show activity indicator")
 }
-machine.onTransitions(to: .Ready) {
-    print("To Ready: hide activity indicator")
+machine.onTransitions(to: .ready) {
+    print("To ready: hide activity indicator")
 }
-machine.onTransitions(to: .Saving) {
+machine.onTransitions(to: .saving) {
     print("To: save")
 }
-try machine.transition(to: .Saving) {
+try machine.transition(to: .saving) {
     print("Triggered: save")
 }
 
@@ -29,24 +29,24 @@ machine.state
 
 
 enum State<T: Hashable>: Hashable {
-    case Ready
-    case Error
-    case Busy(T)
+    case ready
+    case error
+    case busy(T)
 
     var hashValue: Int {
         switch self {
-        case .Ready:
+        case .ready:
             return 0
-        case .Error:
+        case .error:
             return 1
-        case let .Busy(b):
+        case let .busy(b):
             return 2 + b.hashValue
         }
     }
 
     var isBusy: Bool {
         switch self {
-        case .Busy(_):
+        case .busy(_):
             return true
         default:
             return false
@@ -54,13 +54,13 @@ enum State<T: Hashable>: Hashable {
     }
 }
 
-func ==<T>(lhs: State<T>, rhs: State<T>) -> Bool {
+func == <T>(lhs: State<T>, rhs: State<T>) -> Bool {
     switch (lhs, rhs) {
-    case (.Ready, .Ready):
+    case (.ready, .ready):
         return true
-    case (.Error, .Error):
+    case (.error, .error):
         return true
-    case let (.Busy(lhb), .Busy(rhb)):
+    case let (.busy(lhb), .busy(rhb)):
         return lhb == rhb
     default:
         return false
@@ -68,22 +68,22 @@ func ==<T>(lhs: State<T>, rhs: State<T>) -> Bool {
 }
 
 enum Process {
-    case Saving, Fetching, Deleting
+    case saving, fetching, deleting
 }
 
-var scnd = StateMachine<State<Process>>(initial: .Ready) { flow in
-    //allow transitions from busy
-    flow.allow(to: [.Ready, .Error]) { transition in
+var scnd = StateMachine<State<Process>>(initial: .ready) { flow in
+    // allow transitions from busy
+    flow.allow(to: [.ready, .error]) { transition in
         return transition.from?.isBusy ?? false
     }
-    //allow transitions from ready to busy
-    flow.allow(from: .Ready) { t in
+    // allow transitions from ready to busy
+    flow.allow(from: .ready) { t in
         return t.to?.isBusy ?? false
     }
-    flow.allow(transition: Transition(from: nil, to: .Busy(.Deleting)))
+    flow.allow(transition: Transition(from: nil, to: .busy(.deleting)))
 }
 do {
-    try scnd.transition(to: State<Process>.Busy(.Deleting))
+    try scnd.transition(to: State<Process>.busy(.deleting))
 } catch {
     print(error)
 }
