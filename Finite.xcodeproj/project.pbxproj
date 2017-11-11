@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		"Finite::FinitePackageTests::ProductTarget" /* FinitePackageTests */ = {
+		Finite::FinitePackageTests::ProductTarget /* FinitePackageTests */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = OBJ_51 /* Build configuration list for PBXAggregateTarget "FinitePackageTests" */;
 			buildPhases = (
@@ -26,7 +26,7 @@
 		OBJ_35 /* StateFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* StateFlowTests.swift */; };
 		OBJ_36 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* StateMachine.swift */; };
 		OBJ_37 /* TransitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* TransitionTests.swift */; };
-		OBJ_39 /* Finite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Finite::Finite::Product" /* Finite.framework */; };
+		OBJ_39 /* Finite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = Finite::Finite::Product /* Finite.framework */; };
 		OBJ_46 /* StateFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* StateFlow.swift */; };
 		OBJ_47 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* StateMachine.swift */; };
 		OBJ_48 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Transition.swift */; };
@@ -51,8 +51,8 @@
 
 /* Begin PBXFileReference section */
 		BA6718B01FB2563300E575DC /* SwiftShim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShim.swift; sourceTree = "<group>"; };
-		"Finite::Finite::Product" /* Finite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Finite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Finite::FiniteTests::Product" /* FiniteTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiniteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		Finite::Finite::Product /* Finite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Finite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		Finite::FiniteTests::Product /* FiniteTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = FiniteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		OBJ_14 /* StateFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateFlowTests.swift; sourceTree = "<group>"; };
 		OBJ_15 /* StateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
@@ -107,13 +107,13 @@
 		OBJ_20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"Finite::FiniteTests::Product" /* FiniteTests.xctest */,
-				"Finite::Finite::Product" /* Finite.framework */,
+				Finite::FiniteTests::Product /* FiniteTests.xctest */,
+				Finite::Finite::Product /* Finite.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -124,7 +124,6 @@
 				OBJ_19 /* build */,
 				OBJ_20 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -140,12 +139,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"Finite::Finite" /* Finite */ = {
+		Finite::Finite /* Finite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_42 /* Build configuration list for PBXNativeTarget "Finite" */;
 			buildPhases = (
 				OBJ_45 /* Sources */,
 				OBJ_49 /* Frameworks */,
+				BAB197271FB3B90E00EC1D1C /* Run Tailor */,
 			);
 			buildRules = (
 			);
@@ -153,10 +153,10 @@
 			);
 			name = Finite;
 			productName = Finite;
-			productReference = "Finite::Finite::Product" /* Finite.framework */;
+			productReference = Finite::Finite::Product /* Finite.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"Finite::FiniteTests" /* FiniteTests */ = {
+		Finite::FiniteTests /* FiniteTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_30 /* Build configuration list for PBXNativeTarget "FiniteTests" */;
 			buildPhases = (
@@ -170,14 +170,17 @@
 			);
 			name = FiniteTests;
 			productName = FiniteTests;
-			productReference = "Finite::FiniteTests::Product" /* FiniteTests.xctest */;
+			productReference = Finite::FiniteTests::Product /* FiniteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"Finite::SwiftPMPackageDescription" /* FinitePackageDescription */ = {
+		Finite::SwiftPMPackageDescription /* FinitePackageDescription */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "FinitePackageDescription" */;
 			buildPhases = (
 				OBJ_27 /* Sources */,
+				69250938CDA19C6BF677155D /* Tailor */,
+				0F724785ACBACDB7440C89C0 /* Tailor */,
+				C5588751E0754C95CC63A0C7 /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -202,18 +205,79 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"Finite::SwiftPMPackageDescription" /* FinitePackageDescription */,
-				"Finite::FiniteTests" /* FiniteTests */,
-				"Finite::Finite" /* Finite */,
-				"Finite::FinitePackageTests::ProductTarget" /* FinitePackageTests */,
+				Finite::SwiftPMPackageDescription /* FinitePackageDescription */,
+				Finite::FiniteTests /* FiniteTests */,
+				Finite::Finite /* Finite */,
+				Finite::FinitePackageTests::ProductTarget /* FinitePackageTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F724785ACBACDB7440C89C0 /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		69250938CDA19C6BF677155D /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		BAB197271FB3B90E00EC1D1C /* Run Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Tailor";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2> /dev/null; then\n    tailor\nelse\n    echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+			showEnvVarsInLog = 0;
+		};
+		C5588751E0754C95CC63A0C7 /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+			showEnvVarsInLog = 1;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_27 /* Sources */ = {
@@ -250,12 +314,12 @@
 /* Begin PBXTargetDependency section */
 		OBJ_40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Finite::Finite" /* Finite */;
+			target = Finite::Finite /* Finite */;
 			targetProxy = BA6718AE1FB250A600E575DC /* PBXContainerItemProxy */;
 		};
 		OBJ_54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "Finite::FiniteTests" /* FiniteTests */;
+			target = Finite::FiniteTests /* FiniteTests */;
 			targetProxy = BA6718AF1FB250A600E575DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */

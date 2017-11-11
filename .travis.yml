@@ -17,13 +17,17 @@ env:
 matrix:
   include:
     - os: osx
-      osx_image: xcode9
-      env:
-        - SWIFT_VERSION=4.0
-    - os: osx
       osx_image: xcode8
       env:
         - SWIFT_VERSION=3.0
+    - os: osx
+      osx_image: xcode9
+      env:
+        - SWIFT_VERSION=4.0
+      script:
+        - xcodebuild -scheme Finite -enableCodeCoverage YES test | xcpretty
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
   allow_failures:
     - env: SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2017-11-06-a
 install:

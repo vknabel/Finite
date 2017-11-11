@@ -14,6 +14,7 @@ import XCTest
     public func testCase<T: XCTestCase>(_ allTests: [(String, (T) -> () -> Void)]) -> XCTestCaseEntry {
         return (T.self, [])
     }
+
 #endif
 
 public func allTests() -> [XCTestCaseEntry] {
@@ -25,6 +26,7 @@ public func allTests() -> [XCTestCaseEntry] {
 }
 
 #if !swift(>=4.0)
+
     func XCTAssertNoThrow<T>(_ expression: @autoclosure () throws -> T, _ message: @autoclosure () -> String = "XCTAssertNoThrow", file: StaticString = #file, line: UInt = #line) {
         do {
             _ = try expression()
@@ -32,4 +34,5 @@ public func allTests() -> [XCTestCaseEntry] {
             XCTFail(message(), file: file, line: line)
         }
     }
+
 #endif

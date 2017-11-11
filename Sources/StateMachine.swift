@@ -29,7 +29,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     /// Stores the immutable state flow.
     internal let configuration: StateFlow<T>
     /// Stores all transition handlers associated to transitions.
-    internal var transitionHandlers: [Transition<T>:[Operation]] = [:]
+    internal var transitionHandlers: [Transition<T>: [Operation]] = [:]
 
     /// The current state of the machine.
     public var state: T {
@@ -117,15 +117,19 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
 
 internal extension StateMachine {
     #if swift(>=3.0)
+
     /// - returns: A transition from the current state to a given target.
     fileprivate func transition(_ to: T) -> Transition<T> {
         return Transition<T>(from: self.currentState, to: to)
     }
+
     #else
+
     /// - returns: A transition from the current state to a given target.
     private func transition(to: T) -> Transition<T> {
         return Transition<T>(from: self.currentState, to: to)
     }
+
     #endif
 }
 

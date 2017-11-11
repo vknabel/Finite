@@ -65,6 +65,6 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
 }
 
 /// :nodoc:
-public func ==<T>(lhs: Transition<T>, rhs: Transition<T>) -> Bool {
+public func == <T>(lhs: Transition<T>, rhs: Transition<T>) -> Bool {
     return lhs.from == rhs.from && lhs.to == rhs.to
 }
