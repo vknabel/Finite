@@ -3,6 +3,17 @@ sudo: required
 dist: trusty
 notifications:
   email: false
+os: linux
+env:
+  matrix:
+    - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2017-11-06-a
+    - SWIFT_VERSION=4.0.2
+    # No instructions for 4.0.1
+    - SWIFT_VERSION=4.0
+    - SWIFT_VERSION=3.1
+    - SWIFT_VERSION=3.0.2
+    - SWIFT_VERSION=3.0.1
+    - SWIFT_VERSION=3.0
 matrix:
   include:
     - os: osx
@@ -13,28 +24,8 @@ matrix:
       osx_image: xcode8
       env:
         - SWIFT_VERSION=3.0
-    - os: linux
-      env:
-        - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2017-11-06-a
-    - os: linux
-      env:
-        - SWIFT_VERSION=4.0.2
-    # 4.0.1 has no build instructions
-    - os: linux
-      env:
-        - SWIFT_VERSION=4.0
-    - os: linux
-      env:
-        - SWIFT_VERSION=3.1
-    - os: linux
-      env:
-        - SWIFT_VERSION=3.0.2
-    - os: linux
-      env:
-        - SWIFT_VERSION=3.0.1
-    - os: linux
-      env:
-        - SWIFT_VERSION=3.0
+  allow_failures:
+    - env: SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2017-11-06-a
 install:
   - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
 script:
