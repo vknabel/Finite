@@ -15,18 +15,20 @@ var machine = StateMachine<Test>(initial: .Ready) { c in
 machine.onTransitions(from: .Ready) {
     print("From Ready: show activity indicator")
 }
+
 machine.onTransitions(to: .Ready) {
     print("To Ready: hide activity indicator")
 }
+
 machine.onTransitions(to: .Saving) {
     print("To: save")
 }
+
 try machine.transition(to: .Saving) {
     print("Triggered: save")
 }
 
 machine.state
-
 
 enum State<T: Hashable>: Hashable {
     case Ready
@@ -46,7 +48,7 @@ enum State<T: Hashable>: Hashable {
 
     var isBusy: Bool {
         switch self {
-        case .Busy(_):
+        case .Busy:
             return true
         default:
             return false
@@ -54,7 +56,7 @@ enum State<T: Hashable>: Hashable {
     }
 }
 
-func ==<T>(lhs: State<T>, rhs: State<T>) -> Bool {
+func == <T>(lhs: State<T>, rhs: State<T>) -> Bool {
     switch (lhs, rhs) {
     case (.Ready, .Ready):
         return true
@@ -72,16 +74,17 @@ enum Process {
 }
 
 var scnd = StateMachine<State<Process>>(initial: .Ready) { flow in
-    //allow transitions from busy
+    // allow transitions from busy
     flow.allow(to: [.Ready, .Error]) { transition in
-        return transition.from?.isBusy ?? false
+        transition.from?.isBusy ?? false
     }
-    //allow transitions from ready to busy
+    // allow transitions from ready to busy
     flow.allow(from: .Ready) { t in
-        return t.to?.isBusy ?? false
+        t.to?.isBusy ?? false
     }
     flow.allow(transition: Transition(from: nil, to: .Busy(.Deleting)))
 }
+
 do {
     try scnd.transition(to: State<Process>.Busy(.Deleting))
 } catch {

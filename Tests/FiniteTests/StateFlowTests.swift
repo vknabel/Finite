@@ -33,7 +33,7 @@ class StateFlowTests: XCTestCase {
         ("testAllowingMultipleConvenienceFromAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromAbsoluteTransitionHelper),
         ("testAllowingMultipleConvenienceToAbsoluteTransitionHelper", testAllowingMultipleConvenienceToAbsoluteTransitionHelper),
         ("testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper),
-        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState),
+        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState)
     ]
 
     enum Test {
@@ -186,7 +186,7 @@ class StateFlowTests: XCTestCase {
         XCTAssertEqual(Set(sut.description.split(separator: "\n").map(String.init)), [
             Transition<Test>(from: .s0, to: nil).description,
             Transition<Test>(from: .s1, to: nil).description,
-            Transition<Test>(from: .s1, to: .s2).description,
+            Transition<Test>(from: .s1, to: .s2).description
         ])
     }
 

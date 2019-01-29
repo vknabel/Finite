@@ -11,7 +11,7 @@ import XCTest
     public typealias XCTestCaseClosure = (XCTestCase) throws -> Void
     public typealias XCTestCaseEntry = (testCaseClass: XCTestCase.Type, allTests: [(String, XCTestCaseClosure)])
 
-    public func testCase<T: XCTestCase>(_ allTests: [(String, (T) -> () -> Void)]) -> XCTestCaseEntry {
+    public func testCase<T: XCTestCase>(_: [(String, (T) -> () -> Void)]) -> XCTestCaseEntry {
         return (T.self, [])
     }
 
@@ -21,7 +21,7 @@ public func allTests() -> [XCTestCaseEntry] {
     return [
         testCase(TransitionTests.allTests),
         testCase(StateFlowTests.allTests),
-        testCase(StateMachineTests.allTests),
+        testCase(StateMachineTests.allTests)
     ]
 }
 

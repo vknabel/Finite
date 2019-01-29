@@ -25,7 +25,7 @@ extension StateFlowTests {
         ("testDoesNotAllowTransitionsToSameStateByDefault", testDoesNotAllowTransitionsToSameStateByDefault),
         ("testDoesNotAllowUnrelatedAbsoluteTransitions", testDoesNotAllowUnrelatedAbsoluteTransitions),
         ("testEmptyDeniesEverything", testEmptyDeniesEverything),
-        ("testEmptyDeniesEverythingForConfig", testEmptyDeniesEverythingForConfig),
+        ("testEmptyDeniesEverythingForConfig", testEmptyDeniesEverythingForConfig)
     ]
 }
 
@@ -33,7 +33,7 @@ extension StateMachineTests {
     static let __allTests = [
         ("testAllowedTransitionsDoNotThrowAndAdjustTheState", testAllowedTransitionsDoNotThrowAndAdjustTheState),
         ("testCreatingStateMachineWillSetState", testCreatingStateMachineWillSetState),
-        ("testNotAllowedTransitionsDoThrowAndKeepTheState", testNotAllowedTransitionsDoThrowAndKeepTheState),
+        ("testNotAllowedTransitionsDoThrowAndKeepTheState", testNotAllowedTransitionsDoThrowAndKeepTheState)
     ]
 }
 
@@ -45,16 +45,16 @@ extension TransitionTests {
         ("testGeneral", testGeneral),
         ("testHash", testHash),
         ("testNil", testNil),
-        ("testRelative", testRelative),
+        ("testRelative", testRelative)
     ]
 }
 
 #if !os(macOS)
-public func __allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(StateFlowTests.__allTests),
-        testCase(StateMachineTests.__allTests),
-        testCase(TransitionTests.__allTests),
-    ]
-}
+    public func __allTests() -> [XCTestCaseEntry] {
+        return [
+            testCase(StateFlowTests.__allTests),
+            testCase(StateMachineTests.__allTests),
+            testCase(TransitionTests.__allTests)
+        ]
+    }
 #endif

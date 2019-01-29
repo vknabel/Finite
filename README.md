@@ -8,9 +8,10 @@
 Finite is a simple, pure Swift finite state machine. Only exlicitly allowed transitions between states are allowed, otherwise an error will be thrown.
 
 | **Finite** | **Swift**            |
-|------------|----------------------|
+| ---------- | -------------------- |
 | `2.0.0`    | `2.2` and `3.0 Beta` |
 | `3.x.x`    | `3.0` and `4.0`      |
+| `4.x.x`    | `4.2`                |
 
 ## Installation
 

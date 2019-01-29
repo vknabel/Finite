@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 Valentin Knabel. All rights reserved.
 //
 
-import XCTest
 import Finite
+import XCTest
 
 class TransitionTests: XCTestCase {
-
     enum Test {
         case s0, s1
     }
@@ -55,7 +54,6 @@ class TransitionTests: XCTestCase {
         if reltt.from != nil || reltt.to == nil {
             XCTFail("Target Transition")
         }
-
     }
 
     func testNil() {
@@ -66,8 +64,8 @@ class TransitionTests: XCTestCase {
     }
 
     func testEqualty() {
-        for li in 0..<ts.count {
-            for ri in 0..<ts.count {
+        for li in 0 ..< ts.count {
+            for ri in 0 ..< ts.count {
                 XCTAssertEqual(ts[li] == ts[ri], li == ri, "Diagonal equal, else unequal")
             }
         }
@@ -75,7 +73,7 @@ class TransitionTests: XCTestCase {
 
     func testHash() {
         // cannot test for unequalty => there may always be collisions
-        for i in 0..<ts.count {
+        for i in 0 ..< ts.count {
             XCTAssertEqual(ts[i].hashValue, ts[i].hashValue, "Diagonal hash equal")
         }
     }
@@ -94,5 +92,4 @@ class TransitionTests: XCTestCase {
         XCTAssertEqual(abst.description, "s0 -> s1")
         XCTAssertEqual(abstr.description, "s1 -> s0")
     }
-
 }

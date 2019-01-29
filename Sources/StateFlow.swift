@@ -67,7 +67,7 @@ public struct StateFlow<T: Hashable>: CustomStringConvertible {
         let graph = transitionFilters.sorted { (lhs, rhs) -> Bool in
             lhs.key.hashValue < rhs.key.hashValue
         }.compactMap { (transform) -> String? in
-            return transform.key.description
+            transform.key.description
         }
         if graph.count > 0 {
             return graph.joined(separator: "\n")

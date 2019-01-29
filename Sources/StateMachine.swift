@@ -7,8 +7,8 @@
 //
 
 #if !swift(>=3.0)
-/// A shim for Swift 3.0's Error protocol
-public typealias Error = ErrorType
+    /// A shim for Swift 3.0's Error protocol
+    public typealias Error = ErrorType
 #endif
 
 /// Indicates that a transition failed.
@@ -19,7 +19,6 @@ public enum TransitionError<T: Hashable>: Error {
 
 /// Represents a state machine.
 public struct StateMachine<T: Hashable>: CustomStringConvertible {
-
     /// An empty operation to be performed.
     public typealias Operation = () throws -> Void
     public typealias TransitionFilter = StateFlow<T>.TransitionFilter
@@ -37,35 +36,35 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     }
 
     /**
-    Instantiates a state machine by configuring the StateFlow instance.
+     Instantiates a state machine by configuring the StateFlow instance.
 
-    - parameter initial: The initial state.
-    - parameter config: A configurator for an instance of StateFlow.
-    */
+     - parameter initial: The initial state.
+     - parameter config: A configurator for an instance of StateFlow.
+     */
     public init(initial: T, config: StateFlow<T>.Configurator) {
-        self.currentState = initial
-        self.configuration = StateFlow<T>(config: config)
+        currentState = initial
+        configuration = StateFlow<T>(config: config)
     }
 
     /**
-    Instantiates a state machine by passing an instance of StateFlow.
+     Instantiates a state machine by passing an instance of StateFlow.
 
-    - parameter initial: The initial state.
-    - parameter stateFlow: The state flow to be used as configuration.
-    */
+     - parameter initial: The initial state.
+     - parameter stateFlow: The state flow to be used as configuration.
+     */
     public init(initial: T, stateFlow: StateFlow<T>) {
-        self.currentState = initial
-        self.configuration = stateFlow
+        currentState = initial
+        configuration = stateFlow
     }
 
     /**
-    Triggers a transition to a given state and invokes a callback on completion.
+     Triggers a transition to a given state and invokes a callback on completion.
 
-    - parameter to: The targeted state.
-    - parameter completion: An optional callback. Will be only be called on success and after all defined transition handlers were invoked.
-    - throws: Either TransitionError or rethrows underlying errors.
-    - returns: Wether the transition could be performed or not.
-    */
+     - parameter to: The targeted state.
+     - parameter completion: An optional callback. Will be only be called on success and after all defined transition handlers were invoked.
+     - throws: Either TransitionError or rethrows underlying errors.
+     - returns: Wether the transition could be performed or not.
+     */
     public mutating func transition(to: T, completion: Operation? = nil) throws {
         let transition = self.transition(to)
         if configuration.allows(transition) {
@@ -76,7 +75,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
                     }
                 }
             }
-            self.currentState = to
+            currentState = to
             try completion?()
         } else {
             throw TransitionError.denied(from: currentState, to: to)
@@ -84,21 +83,21 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     }
 
     /**
-    Returns wether transitioning to a state is allowed.
+     Returns wether transitioning to a state is allowed.
 
-    - parameter to: The targeted state.
-    - returns: true if allowed else false.
-    */
+     - parameter to: The targeted state.
+     - returns: true if allowed else false.
+     */
     public func allows(to: T) -> Bool {
-        return configuration.allows(self.transition(to))
+        return configuration.allows(transition(to))
     }
 
     /**
-    Appends a transition handler for all more-equal general transitions.
+     Appends a transition handler for all more-equal general transitions.
 
-    - parameter transition: The most specific transition.
-    - parameter perform: The operation the be performed.
-    */
+     - parameter transition: The most specific transition.
+     - parameter perform: The operation the be performed.
+     */
     public mutating func onTransitions(transition: Transition<T>, perform op: @escaping Operation) {
         if transitionHandlers[transition] == nil {
             transitionHandlers[transition] = []
@@ -107,8 +106,8 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     }
 
     /**
-    Returns the graph for the state machine
-    */
+     Returns the graph for the state machine
+     */
     public var description: String {
         let result = "digraph {\n" + "graph [rankdir=LR]\n" + configuration.description + "\n}\n"
         return result
@@ -118,30 +117,29 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
 internal extension StateMachine {
     #if swift(>=3.0)
 
-    /// - returns: A transition from the current state to a given target.
-    fileprivate func transition(_ to: T) -> Transition<T> {
-        return Transition<T>(from: self.currentState, to: to)
-    }
+        /// - returns: A transition from the current state to a given target.
+        fileprivate func transition(_ to: T) -> Transition<T> {
+            return Transition<T>(from: currentState, to: to)
+        }
 
     #else
 
-    /// - returns: A transition from the current state to a given target.
-    private func transition(to: T) -> Transition<T> {
-        return Transition<T>(from: self.currentState, to: to)
-    }
+        /// - returns: A transition from the current state to a given target.
+        private func transition(to: T) -> Transition<T> {
+            return Transition<T>(from: currentState, to: to)
+        }
 
     #endif
 }
 
 public extension StateMachine {
-
     /**
-    Appends a transition handler for all more-equal general transitions.
+     Appends a transition handler for all more-equal general transitions.
 
-    - parameter from: The source state.
-    - parameter to: The target state.
-    - parameter perform: The operation the be performed.
-    */
+     - parameter from: The source state.
+     - parameter to: The target state.
+     - parameter perform: The operation the be performed.
+     */
     public mutating func onTransitions(from: T, to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: to)
         if transitionHandlers[transition] == nil {
@@ -151,11 +149,11 @@ public extension StateMachine {
     }
 
     /**
-    Appends a transition handler for all more-equal general transitions.
+     Appends a transition handler for all more-equal general transitions.
 
-    - parameter from: The source state.
-    - parameter perform: The operation the be performed.
-    */
+     - parameter from: The source state.
+     - parameter perform: The operation the be performed.
+     */
     public mutating func onTransitions(from: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: nil)
         if transitionHandlers[transition] == nil {
@@ -165,11 +163,11 @@ public extension StateMachine {
     }
 
     /**
-    Appends a transition handler for all more-equal general transitions.
+     Appends a transition handler for all more-equal general transitions.
 
-    - parameter to: The target state.
-    - parameter perform: The operation the be performed.
-    */
+     - parameter to: The target state.
+     - parameter perform: The operation the be performed.
+     */
     public mutating func onTransitions(to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: nil, to: to)
         if transitionHandlers[transition] == nil {
@@ -177,5 +175,4 @@ public extension StateMachine {
         }
         transitionHandlers[transition]?.append(op)
     }
-
 }

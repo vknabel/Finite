@@ -5,8 +5,8 @@
 //  Created by Valentin Knabel on 06.11.17.
 //
 
-import XCTest
 import Finite
+import XCTest
 
 class StateMachineTests: XCTestCase {
     static var allTests = [
@@ -57,5 +57,4 @@ class StateMachineTests: XCTestCase {
             }
         }
     }
-
 }
