@@ -52,9 +52,16 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
         return generals
     }
     
-    /// The hash value.
+    // Synthesized by compiler
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.from)
+        hasher.combine(self.to)
+    }
+    
     public var hashValue: Int {
-        return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
     }
     
     public var description: String {
