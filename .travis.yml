@@ -11,15 +11,7 @@ env:
 matrix:
   include:
     - os: osx
-      osx_image: xcode9
-      env:
-        - SWIFT_VERSION=system
-    - os: osx
-      osx_image: xcode9
-      env:
-        - SWIFT_VERSION=system
-    - os: osx
-      osx_image: xcode10
+      osx_image: xcode10.1
       env:
         - SWIFT_VERSION=system
       script:
