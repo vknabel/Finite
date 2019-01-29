@@ -5,8 +5,8 @@
 //  Created by Valentin Knabel on 06.11.17.
 //
 
-import XCTest
 import Finite
+import XCTest
 
 class StateFlowTests: XCTestCase {
     static var allTests = [
@@ -33,7 +33,7 @@ class StateFlowTests: XCTestCase {
         ("testAllowingMultipleConvenienceFromAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromAbsoluteTransitionHelper),
         ("testAllowingMultipleConvenienceToAbsoluteTransitionHelper", testAllowingMultipleConvenienceToAbsoluteTransitionHelper),
         ("testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper),
-        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState)
+        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState),
     ]
 
     enum Test {
@@ -183,14 +183,11 @@ class StateFlowTests: XCTestCase {
         sut = StateFlow()
         sut.allow(from: [.s0, .s1])
         sut.allow(from: .s1, to: .s2)
-        XCTAssertEqual(sut.description, [
-            Transition<Test>(from: .s0, to: nil),
-            Transition<Test>(from: .s1, to: nil),
-            Transition<Test>(from: .s1, to: .s2),
-        ]
-            .map { $0.description }
-            .joined(separator: "\n")
-        )
+        XCTAssertEqual(Set(sut.description.split(separator: "\n").map(String.init)), [
+            Transition<Test>(from: .s0, to: nil).description,
+            Transition<Test>(from: .s1, to: nil).description,
+            Transition<Test>(from: .s1, to: .s2).description,
+        ])
     }
 
     func testDescriptionWithoutContents() {
@@ -309,5 +306,4 @@ class StateFlowTests: XCTestCase {
             }
         }
     }
-
 }

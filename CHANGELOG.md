@@ -1,8 +1,12 @@
 # Changelog
 
-## 3.1.0
+## 3.1.1
 
-*Not released yet*
+### Fixes
+
+- Avoid assertion failure by combining hash values instead of summing them up - @iLuke93 @snofla
+
+## 3.1.0
 
 ### Additions
 

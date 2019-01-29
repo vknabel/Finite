@@ -7,15 +7,14 @@
 //
 
 /**
-The Transition class represents a transition from a given state to a targeted state.
-There are three types of transitions:
+ The Transition class represents a transition from a given state to a targeted state.
+ There are three types of transitions:
 
-1. Absolute Transitions have a source and a target state set.
-2. Relative Transitions have only one state set.
-3. Nil Transitions have none states set and will be ignored.
-*/
+ 1. Absolute Transitions have a source and a target state set.
+ 2. Relative Transitions have only one state set.
+ 3. Nil Transitions have none states set and will be ignored.
+ */
 public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
-
     /// Nil transitions will be ignored.
     public static var nilTransition: Transition<T> {
         return Transition<T>(from: nil, to: nil)
@@ -27,34 +26,29 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     public var to: T?
 
     /**
-    Constructs an absolute, relative or nil transition.
+     Constructs an absolute, relative or nil transition.
 
-    - parameter from: The source state.
-    - parameter to: The target state.
-    */
+     - parameter from: The source state.
+     - parameter to: The target state.
+     */
     public init(from: T?, to: T?) {
         self.from = from
         self.to = to
     }
 
     /**
-    All more general transitions include itself except the nil transition.
+     All more general transitions include itself except the nil transition.
 
-    - returns: All general transitions.
+     - returns: All general transitions.
 
-        - Generals of an absolute transition is itself and relative transitions.
-        - Generals of a relative transition is only itself.
-        - Nil transitions have no generals.
-    */
+     - Generals of an absolute transition is itself and relative transitions.
+     - Generals of a relative transition is only itself.
+     - Nil transitions have no generals.
+     */
     public var generalTransitions: Set<Transition> {
         var generals = Set<Transition>([self, Transition(from: from, to: nil), Transition(from: nil, to: to)])
         generals.remove(.nilTransition)
         return generals
-    }
-
-    /// The hash value.
-    public var hashValue: Int {
-        return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
     }
 
     public var description: String {
@@ -62,6 +56,21 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
         let t = to != nil ? String(describing: to!) : "any"
         return "\(f) -> \(t)"
     }
+
+    #if swift(>=4.2)
+        // compiler generated
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(from)
+            hasher.combine(to)
+        }
+
+    #else
+        /// :nodoc:
+        public var hashValue: Int {
+            print("Swift <4.2")
+            return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
+        }
+    #endif
 }
 
 /// :nodoc:
