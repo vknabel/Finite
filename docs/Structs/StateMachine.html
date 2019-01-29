@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Finite Docs
         </a>
-         (100% documented)
+         (97% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -87,7 +87,7 @@
             <h1>StateMachine</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateMachine</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StateMachine</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">CustomStringConvertible</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
@@ -120,7 +120,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Operation</span> <span class="o">=</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Operation</span> <span class="o">=</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -130,9 +130,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV5statexv"></a>
+                    <a name="/s:6Finite12StateMachineV16TransitionFiltera"></a>
+                    <a name="//apple_ref/swift/Alias/TransitionFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Finite12StateMachineV16TransitionFiltera">TransitionFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TransitionFilter</span> <span class="o">=</span> <span class="kt"><a href="../Structs/StateFlow.html">StateFlow</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">TransitionFilter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Finite12StateMachineV5statexvp"></a>
                     <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV5statexv">state</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV5statexvp">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -147,7 +174,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">T</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">T</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -157,9 +184,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineVACyxGx7initial_yAA0B4FlowVyxGzc6configtcfc"></a>
+                    <a name="/s:6Finite12StateMachineV7initial6configACyxGx_yAA0B4FlowVyxGzXEtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(initial:config:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineVACyxGx7initial_yAA0B4FlowVyxGzc6configtcfc">init(initial:config:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV7initial6configACyxGx_yAA0B4FlowVyxGzXEtcfc">init(initial:config:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">initial</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html">StateFlow</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">Configurator</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">initial</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html">StateFlow</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;.</span><span class="kt">Configurator</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -215,9 +242,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineVACyxGx7initial_AA0B4FlowVyxG05stateE0tcfc"></a>
+                    <a name="/s:6Finite12StateMachineV7initial9stateFlowACyxGx_AA0bF0VyxGtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(initial:stateFlow:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineVACyxGx7initial_AA0B4FlowVyxG05stateE0tcfc">init(initial:stateFlow:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV7initial9stateFlowACyxGx_AA0bF0VyxGtcfc">init(initial:stateFlow:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -232,7 +259,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">initial</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">stateFlow</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html">StateFlow</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">initial</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">stateFlow</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateFlow.html">StateFlow</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -273,9 +300,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV10transitionyx2to_yyKcSg10completiontKF"></a>
+                    <a name="/s:6Finite12StateMachineV10transition2to10completionyx_yyKcSgtKF"></a>
                     <a name="//apple_ref/swift/Method/transition(to:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV10transitionyx2to_yyKcSg10completiontKF">transition(to:completion:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV10transition2to10completionyx_yyKcSgtKF">transition(to:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -295,7 +322,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">transition</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -340,9 +367,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV6allowsSbx2to_tF"></a>
+                    <a name="/s:6Finite12StateMachineV6allows2toSbx_tF"></a>
                     <a name="//apple_ref/swift/Method/allows(to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV6allowsSbx2to_tF">allows(to:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV6allows2toSbx_tF">allows(to:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -357,7 +384,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">allows</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">allows</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -390,9 +417,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV13onTransitionsyAA10TransitionVyxG10transition_yyKc7performtF"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitions10transition7performyAA10TransitionVyxG_yyKctF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(transition:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyAA10TransitionVyxG10transition_yyKc7performtF">onTransitions(transition:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitions10transition7performyAA10TransitionVyxG_yyKctF">onTransitions(transition:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -407,7 +434,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">transition</span><span class="p">:</span> <span class="kt"><a href="../Structs/Transition.html">Transition</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -448,9 +475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV11descriptionSSv"></a>
+                    <a name="/s:6Finite12StateMachineV11descriptionSSvp"></a>
                     <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV11descriptionSSv">description</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV11descriptionSSvp">description</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -465,7 +492,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -479,9 +506,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV13onTransitionsyx4from_x2toyyKc7performtF"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitions4from2to7performyx_xyyKctF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(from:to:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx4from_x2toyyKc7performtF">onTransitions(from:to:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitions4from2to7performyx_xyyKctF">onTransitions(from:to:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -496,7 +523,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -549,9 +576,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV13onTransitionsyx4from_yyKc7performtF"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitions4from7performyx_yyKctF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(from:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx4from_yyKc7performtF">onTransitions(from:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitions4from7performyx_yyKctF">onTransitions(from:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -566,7 +593,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -607,9 +634,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Finite12StateMachineV13onTransitionsyx2to_yyKc7performtF"></a>
+                    <a name="/s:6Finite12StateMachineV13onTransitions2to7performyx_yyKctF"></a>
                     <a name="//apple_ref/swift/Method/onTransitions(to:perform:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitionsyx2to_yyKc7performtF">onTransitions(to:perform:)</a>
+                    <a class="token" href="#/s:6Finite12StateMachineV13onTransitions2to7performyx_yyKctF">onTransitions(to:perform:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -624,7 +651,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">perform</span> <span class="nv">op</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/StateMachine.html#/s:6Finite12StateMachineV9Operationa">Operation</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -670,8 +697,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2019-01-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
