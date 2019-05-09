@@ -16,7 +16,7 @@ matrix:
         - swift build
         - swift test
     - os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
       env:
         - SWIFT_VERSION=system
       install:
