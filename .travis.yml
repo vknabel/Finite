@@ -4,21 +4,24 @@ dist: trusty
 notifications:
   email: false
 os: linux
-env:
-  matrix:
-    - SWIFT_VERSION=5.0.1
 matrix:
   include:
+    - os: linux
+      env:
+        - SWIFT_VERSION=5.0.1
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+        - swift package resolve
+      script:
+        - swift build
+        - swift test
     - os: osx
       osx_image: xcode10.1
       env:
         - SWIFT_VERSION=system
+      install:
+        - swift package resolve
       script:
         - xcodebuild -scheme Finite -enableCodeCoverage YES test | xcpretty
       after_success:
         - bash <(curl -s https://codecov.io/bash)
-install:
-  - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-script:
-  - swift build
-  - swift test
