@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Finite'
-  s.version          = '3.1.1'
+  s.version          = '4.0.0'
   s.summary          = 'A simple state machine written in Swift.'
   s.description      = <<-DESC
 Finite is a simple, pure Swift finite state machine.

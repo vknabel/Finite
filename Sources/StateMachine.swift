@@ -28,7 +28,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     /// Stores the immutable state flow.
     internal let configuration: StateFlow<T>
     /// Stores all transition handlers associated to transitions.
-    internal var transitionHandlers: [Transition<T>: [Operation]] = [:]
+    internal var transitionHandlers: [Transition<T>: [Ref<Operation>]] = [:]
 
     /// The current state of the machine.
     public var state: T {
@@ -68,12 +68,13 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
     public mutating func transition(to: T, completion: Operation? = nil) throws {
         let transition = self.transition(to)
         if configuration.allows(transition) {
-            for t in transition.generalTransitions {
+            for t in transition.generalTransitions + [.nilTransition] {
                 if let handlers = self.transitionHandlers[t] {
                     for h in handlers {
-                        try h() // rethrows
+                        try h.resolve()?() // rethrows
                     }
                 }
+                transitionHandlers[t]?.removeAll(where: { $0.resolve() == nil })
             }
             currentState = to
             try completion?()
@@ -92,17 +93,33 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
         return configuration.allows(transition(to))
     }
 
+    private mutating func observeTransitions(like transition: Transition<T>, perform opRef: Ref<Operation>) {
+        if transitionHandlers[transition] == nil {
+            transitionHandlers[transition] = []
+        }
+        transitionHandlers[transition]?.append(opRef)
+    }
+
     /**
      Appends a transition handler for all more-equal general transitions.
 
      - parameter transition: The most specific transition.
      - parameter perform: The operation the be performed.
      */
-    public mutating func onTransitions(transition: Transition<T>, perform op: @escaping Operation) {
-        if transitionHandlers[transition] == nil {
-            transitionHandlers[transition] = []
-        }
-        transitionHandlers[transition]?.append(op)
+    public mutating func onTransitions(like transition: Transition<T> = .nilTransition, perform op: @escaping Operation) {
+        observeTransitions(like: transition, perform: .strong(op))
+    }
+
+    /**
+     Appends a transition handler for all more-equal general transitions.
+
+     - parameter transition: The most specific transition.
+     - parameter perform: The operation the be performed.
+     */
+    public mutating func subscribeTransitions(like transition: Transition<T> = .nilTransition, perform op: @escaping Operation) -> ReferenceDisposable {
+        let (subscription, ref) = Ref.weak(op)
+        observeTransitions(like: transition, perform: ref)
+        return subscription
     }
 
     /**
@@ -140,12 +157,22 @@ public extension StateMachine {
      - parameter to: The target state.
      - parameter perform: The operation the be performed.
      */
-    public mutating func onTransitions(from: T, to: T, perform op: @escaping Operation) {
+    mutating func onTransitions(from: T, to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: to)
-        if transitionHandlers[transition] == nil {
-            transitionHandlers[transition] = []
-        }
-        transitionHandlers[transition]?.append(op)
+        onTransitions(like: transition, perform: op)
+    }
+
+    /**
+     Appends a transition handler for all more-equal general transitions.
+
+     - parameter from: The source state.
+     - parameter to: The target state.
+     - parameter perform: The operation the be performed.
+     - returns: subcription which needs to be kept.
+     */
+    mutating func subscribeTransitions(from: T, to: T, perform op: @escaping Operation) -> ReferenceDisposable {
+        let transition = Transition<T>(from: from, to: to)
+        return subscribeTransitions(like: transition, perform: op)
     }
 
     /**
@@ -154,12 +181,21 @@ public extension StateMachine {
      - parameter from: The source state.
      - parameter perform: The operation the be performed.
      */
-    public mutating func onTransitions(from: T, perform op: @escaping Operation) {
+    mutating func onTransitions(from: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: from, to: nil)
-        if transitionHandlers[transition] == nil {
-            transitionHandlers[transition] = []
-        }
-        transitionHandlers[transition]?.append(op)
+        onTransitions(like: transition, perform: op)
+    }
+
+    /**
+     Appends a transition handler for all more-equal general transitions.
+
+     - parameter from: The source state.
+     - parameter perform: The operation the be performed.
+     - returns: subcription which needs to be kept.
+     */
+    mutating func subscribeTransitions(from: T, perform op: @escaping Operation) -> ReferenceDisposable {
+        let transition = Transition<T>(from: from, to: nil)
+        return subscribeTransitions(like: transition, perform: op)
     }
 
     /**
@@ -168,11 +204,35 @@ public extension StateMachine {
      - parameter to: The target state.
      - parameter perform: The operation the be performed.
      */
-    public mutating func onTransitions(to: T, perform op: @escaping Operation) {
+    mutating func onTransitions(to: T, perform op: @escaping Operation) {
         let transition = Transition<T>(from: nil, to: to)
-        if transitionHandlers[transition] == nil {
-            transitionHandlers[transition] = []
-        }
-        transitionHandlers[transition]?.append(op)
+        onTransitions(like: transition, perform: op)
+    }
+
+    /**
+     Appends a transition handler for all more-equal general transitions.
+
+     - parameter to: The target state.
+     - parameter perform: The operation the be performed.
+     - returns: subcription which needs to be kept.
+     */
+    mutating func subscribeTransitions(to: T, perform op: @escaping Operation) -> ReferenceDisposable {
+        let transition = Transition<T>(from: nil, to: to)
+        return subscribeTransitions(like: transition, perform: op)
+    }
+}
+
+public extension StateMachine {
+    /**
+     Appends a transition handler for all more-equal general transitions.
+     Deprecated, use `StateMachine.onTransitions(like:perform:)` instead.
+     Operations for .nilTransition will now be performed for every transition.
+
+     - parameter transition: The most specific transition.
+     - parameter perform: The operation the be performed.
+     */
+    @available(*, renamed: "onTransitions(like:perform:)", deprecated, message: "Operations for .nilTransition will now be performed for every transition")
+    mutating func onTransitions(transition: Transition<T>, perform op: @escaping Operation) {
+        observeTransitions(like: transition, perform: .strong(op))
     }
 }

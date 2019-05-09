@@ -11,7 +11,7 @@ Finite is a simple, pure Swift finite state machine. Only exlicitly allowed tran
 | ---------- | -------------------- |
 | `2.0.0`    | `2.2` and `3.0 Beta` |
 | `3.x.x`    | `3.0` and `4.0`      |
-| `4.x.x`    | `4.2`                |
+| `4.x.x`    | `4.2` and `5.0`      |
 
 ## Installation
 
@@ -25,7 +25,10 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/Finite.git", majorVersion: 3)
+        .package(url: "https://github.com/vknabel/Finite.git", from: "4.0.0")
+    ],
+    targets: [
+        .target(name: "YourTarget", dependencies: ["Finite"]),
     ]
 )
 ```
@@ -42,7 +45,7 @@ github "vknabel/Finite"
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'Finite'
+pod 'Finite', '~> 4.0.0'
 ```
 
 ## Introduction
@@ -64,6 +67,9 @@ var machine = StateMachine<Test>(initial: .ready) { c in
 It is possible to provide callbacks, that will be called once certain transitions will happen.
 
 ```swift
+machine.onTransitions {
+    println("Successfully triggered transition!")
+}
 machine.onTransitions(from: .ready) {
     println("From Ready: show activity indicator")
 }
@@ -72,6 +78,10 @@ machine.onTransitions(to: .ready) {
 }
 machine.onTransitions(to: .saving) {
     println("To: save")
+}
+
+let subscription = machine.subscribeTransitions(to: .saving) {
+    println("Only triggered as long as you keep `subscription`")
 }
 ```
 
@@ -82,7 +92,7 @@ try machine.transition(to: .saving) {
     println("Triggered: save")
 }
 
-// this will throw an error
+// this will throw TransitionError<Test>.denied(from: .saving, to: .fetching)
 try machine.transition(to: .fetching)
 ```
 

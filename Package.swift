@@ -10,10 +10,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/orta/Komondor.git", from: "1.0.0"), // dev
-        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.35.8"), // dev
-        .package(url: "https://github.com/Realm/SwiftLint.git", from: "0.28.1"), // dev
-        .package(url: "https://github.com/f-meloni/Rocket", from: "0.5.0"), // dev
+        .package(url: "https://github.com/shibapm/Komondor.git", from: "1.0.4"), // dev
+        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.40.8"), // dev
+        .package(url: "https://github.com/f-meloni/Rocket.git", from: "0.9.1"), // dev
     ],
     targets: [
         .target(name: "Finite", path: "Sources"),
@@ -25,15 +24,13 @@ let package = Package(
 #if canImport(PackageConfig)
     import PackageConfig
 
-    let config = PackageConfig([
+    let config = PackageConfiguration([
         "komondor": [
             "pre-push": "swift test",
             "pre-commit": [
                 "swift test --generate-linuxmain",
                 "swift test",
-                "swift run swiftformat . || true",
-                "swift run swiftlint autocorrect --path Sources/",
-                "swift run swiftlint autocorrect --path Tests/",
+                "swift run swiftformat Sources *.swift Tests",
                 "git add .",
             ],
         ],
@@ -47,5 +44,5 @@ let package = Package(
             ["commit": ["no_verify": true, "message": "Unhide dev dependencies"]],
             "push",
         ]],
-    ])
+    ]).write()
 #endif

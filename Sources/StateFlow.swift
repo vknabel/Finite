@@ -84,7 +84,7 @@ public extension StateFlow {
      - parameter from: The source state.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: T, filter: TransitionFilter? = nil) {
+    mutating func allow(from: T, filter: TransitionFilter? = nil) {
         allow(transition: Transition<T>(from: from, to: nil), filter: filter)
     }
 
@@ -94,7 +94,7 @@ public extension StateFlow {
      - parameter to: The target state.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(to: T, filter: TransitionFilter? = nil) {
+    mutating func allow(to: T, filter: TransitionFilter? = nil) {
         allow(transition: Transition<T>(from: nil, to: to), filter: filter)
     }
 
@@ -105,7 +105,7 @@ public extension StateFlow {
      - parameter to: The target state.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: T, to: T, filter: TransitionFilter? = nil) {
+    mutating func allow(from: T, to: T, filter: TransitionFilter? = nil) {
         allow(transition: Transition<T>(from: from, to: to), filter: filter)
     }
 
@@ -115,7 +115,7 @@ public extension StateFlow {
      - parameter from: All source states.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: [T], filter: TransitionFilter? = nil) {
+    mutating func allow(from: [T], filter: TransitionFilter? = nil) {
         for f in from {
             allow(transition: Transition<T>(from: f, to: nil), filter: filter)
         }
@@ -128,7 +128,7 @@ public extension StateFlow {
      - parameter to: The target state.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: [T], to: T, filter: TransitionFilter? = nil) {
+    mutating func allow(from: [T], to: T, filter: TransitionFilter? = nil) {
         for f in from {
             allow(transition: Transition<T>(from: f, to: to), filter: filter)
         }
@@ -140,7 +140,7 @@ public extension StateFlow {
      - parameter to: All target states.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(to: [T], filter: TransitionFilter? = nil) {
+    mutating func allow(to: [T], filter: TransitionFilter? = nil) {
         for t in to {
             allow(transition: Transition<T>(from: nil, to: t), filter: filter)
         }
@@ -153,7 +153,7 @@ public extension StateFlow {
      - parameter to: All target states.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: T, to: [T], filter: TransitionFilter? = nil) {
+    mutating func allow(from: T, to: [T], filter: TransitionFilter? = nil) {
         for t in to {
             allow(transition: Transition<T>(from: from, to: t), filter: filter)
         }
@@ -166,7 +166,7 @@ public extension StateFlow {
      - parameter to: All target states.
      - parameter filter: An optional filter for transitions.
      */
-    public mutating func allow(from: [T], to: [T], filter: TransitionFilter? = nil) {
+    mutating func allow(from: [T], to: [T], filter: TransitionFilter? = nil) {
         for f in from {
             for t in to {
                 allow(transition: Transition<T>(from: f, to: t), filter: filter)

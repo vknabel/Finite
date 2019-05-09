@@ -9,33 +9,6 @@ import Finite
 import XCTest
 
 class StateFlowTests: XCTestCase {
-    static var allTests = [
-        ("testEmptyDeniesEverything", testEmptyDeniesEverything),
-        ("testEmptyDeniesEverythingForConfig", testEmptyDeniesEverythingForConfig),
-        ("testAllowsAbsoluteTransitionsWhenAddedPreviously", testAllowsAbsoluteTransitionsWhenAddedPreviously),
-        ("testAllowsAbsoluteTransitionsWhenAddedPreviouslyUsingEmptyInitializer", testAllowsAbsoluteTransitionsWhenAddedPreviouslyUsingEmptyInitializer),
-        ("testDoesNotAllowTransitionsToSameStateByDefault", testDoesNotAllowTransitionsToSameStateByDefault),
-        ("testDoesNotAllowUnrelatedAbsoluteTransitions", testDoesNotAllowUnrelatedAbsoluteTransitions),
-        ("testAllowsFromRelativeTransitionsWhenAddedPreviously", testAllowsFromRelativeTransitionsWhenAddedPreviously),
-        ("testAllowsToRelativeTransitionsWhenAddedPreviously", testAllowsToRelativeTransitionsWhenAddedPreviously),
-        ("testDoesNotAllowNilTransitionsWhenAddedPreviously", testDoesNotAllowNilTransitionsWhenAddedPreviously),
-        ("testAllowsAbsoluteTransitionWhenFromRelativeIsAllowed", testAllowsAbsoluteTransitionWhenFromRelativeIsAllowed),
-        ("testAllowsAbsoluteTransitionWhenToRelativeIsAllowed", testAllowsAbsoluteTransitionWhenToRelativeIsAllowed),
-        ("testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously", testDoesNotAllowAbsoluteTransitionsWhenAddedNilPreviously),
-        ("testAllowsAlwaysSucceedingFilter", testAllowsAlwaysSucceedingFilter),
-        ("testDeniesAlwaysDenyingFilter", testDeniesAlwaysDenyingFilter),
-        ("testDescriptionWithContents", testDescriptionWithContents),
-        ("testDescriptionWithoutContents", testDescriptionWithoutContents),
-        ("testAllowingConvenienceFromRelativeTransitionHelper", testAllowingConvenienceFromRelativeTransitionHelper),
-        ("testAllowingMultipleConvenienceFromRelativeTransitionHelper", testAllowingMultipleConvenienceFromRelativeTransitionHelper),
-        ("testAllowingConvenienceToRelativeTransitionHelper", testAllowingConvenienceToRelativeTransitionHelper),
-        ("testAllowingMultipleConvenienceToRelativeTransitionHelper", testAllowingMultipleConvenienceToRelativeTransitionHelper),
-        ("testAllowingMultipleConvenienceFromAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromAbsoluteTransitionHelper),
-        ("testAllowingMultipleConvenienceToAbsoluteTransitionHelper", testAllowingMultipleConvenienceToAbsoluteTransitionHelper),
-        ("testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper", testAllowingMultipleConvenienceFromToAbsoluteTransitionHelper),
-        ("testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState", testAllowingEverythingMultipleConvenienceFromToAbsoluteTransitionHelperForEveryState)
-    ]
-
     enum Test {
         case s0, s1, s2
     }
@@ -186,7 +159,7 @@ class StateFlowTests: XCTestCase {
         XCTAssertEqual(Set(sut.description.split(separator: "\n").map(String.init)), [
             Transition<Test>(from: .s0, to: nil).description,
             Transition<Test>(from: .s1, to: nil).description,
-            Transition<Test>(from: .s1, to: .s2).description
+            Transition<Test>(from: .s1, to: .s2).description,
         ])
     }
 

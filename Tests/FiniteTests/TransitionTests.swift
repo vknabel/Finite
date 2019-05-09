@@ -14,15 +14,6 @@ class TransitionTests: XCTestCase {
         case s0, s1
     }
 
-    static var allTests = [
-        ("testAbsolute", testAbsolute),
-        ("testRelative", testRelative),
-        ("testNil", testNil),
-        ("testEqualty", testEqualty),
-        ("testHash", testHash),
-        ("testGeneral", testGeneral)
-    ]
-
     var nilt: Transition<Test>!
     var relft: Transition<Test>!
     var reltt: Transition<Test>!
