@@ -55,7 +55,7 @@ class StateMachineTests: XCTestCase {
             calledOnDefaultTransitions.fulfill()
         }
         try sut.transition(to: .s1)
-        wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
+        self.wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
     }
 
     func testSubscribeTransitionsForNilTransitionTriggeredWhenHold() throws {
@@ -70,7 +70,7 @@ class StateMachineTests: XCTestCase {
             calledOnDefaultTransitions.fulfill()
         })
         try sut.transition(to: .s1)
-        wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
+        self.wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
     }
 
     func testSubscribeTransitionsForNilTransitionNeverTriggeredWhenNotHold() throws {
@@ -86,7 +86,7 @@ class StateMachineTests: XCTestCase {
             calledOnDefaultTransitions.fulfill()
         }
         try sut.transition(to: .s1)
-        wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
+        self.wait(for: [calledOnNilTransitions, calledOnDefaultTransitions], timeout: 0.1)
     }
 
     func testOnTransitionsTriggeredOnExactTransition() throws {
@@ -109,7 +109,7 @@ class StateMachineTests: XCTestCase {
         }
 
         try sut.transition(to: .s1)
-        wait(for: [calledOnTransitions, calledOnTransitionsTo, calledOnTransitionsFrom, calledOnTransitionsFromTo], timeout: 1)
+        self.wait(for: [calledOnTransitions, calledOnTransitionsTo, calledOnTransitionsFrom, calledOnTransitionsFromTo], timeout: 1)
     }
 
     func testOnTransitionsNeverTriggeredOnSwappedTransition() throws {
@@ -131,7 +131,7 @@ class StateMachineTests: XCTestCase {
         }
 
         try sut.transition(to: .s1)
-        wait(for: [anyCalled], timeout: 0.1)
+        self.wait(for: [anyCalled], timeout: 0.1)
     }
 
     func testSubscribedTransitionsTriggeredOnExactTransitionWhenStored() throws {
@@ -155,7 +155,7 @@ class StateMachineTests: XCTestCase {
         })
 
         try sut.transition(to: .s1)
-        wait(for: [calledSubscribeTransitions, calledSubscribeTransitionsTo, calledSubscribeTransitionsFrom, calledSubscribeTransitionsFromTo], timeout: 0.1)
+        self.wait(for: [calledSubscribeTransitions, calledSubscribeTransitionsTo, calledSubscribeTransitionsFrom, calledSubscribeTransitionsFromTo], timeout: 0.1)
     }
 
     func testSubscribedTransitionsNeverTriggeredOnExactTransitionWhenNotStored() throws {
@@ -177,7 +177,7 @@ class StateMachineTests: XCTestCase {
         }
 
         try sut.transition(to: .s1)
-        wait(for: [anyCalled], timeout: 1)
+        self.wait(for: [anyCalled], timeout: 1)
     }
 
     private func prepare(initial state: Test = .s0, allowing transitions: Transition<Test>...) {
