@@ -11,7 +11,7 @@ Finite is a simple, pure Swift finite state machine. Only exlicitly allowed tran
 | ---------- | -------------------- |
 | `2.0.0`    | `2.2` and `3.0 Beta` |
 | `3.x.x`    | `3.0` and `4.0`      |
-| `4.x.x`    | `4.2` and `5.0`      |
+| `4.x.x`    | `5.0`                |
 
 ## Installation
 

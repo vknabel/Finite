@@ -9,6 +9,7 @@ Temporarily `subscribeTransitions` of your State Machines and bind the callbacks
 
 ### Breaking Changes
 
+- Requires Swift 5
 - Previously passing `Transition.nilTransition` to `StateMachine.onTransitions(like:perform:)` did never trigger the `perform` handler and was therefore useless. Now it will always be triggered.
 
 ### Additions

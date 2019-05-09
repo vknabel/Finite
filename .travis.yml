@@ -6,8 +6,6 @@ notifications:
 os: linux
 env:
   matrix:
-    - SWIFT_VERSION=4.2.1
-    - SWIFT_VERSION=4.2
     - SWIFT_VERSION=5.0.1
 matrix:
   include:

@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
@@ -17,8 +17,7 @@ let package = Package(
     targets: [
         .target(name: "Finite", path: "Sources"),
         .testTarget(name: "FiniteTests", dependencies: ["Finite"], path: "Tests"),
-    ],
-    swiftLanguageVersions: [.v3, .v4, .v4_2]
+    ]
 )
 
 #if canImport(PackageConfig)
@@ -28,7 +27,8 @@ let package = Package(
         "komondor": [
             "pre-push": "swift test",
             "pre-commit": [
-                "swift test --generate-linuxmain",
+                "swift package generate-xcodeproj --enable-code-coverage || true",
+                "swift test --generate-linuxmain || true",
                 "swift test",
                 "swift run swiftformat Sources *.swift Tests",
                 "jazzy || true",
