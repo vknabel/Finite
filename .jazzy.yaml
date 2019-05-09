@@ -2,7 +2,7 @@ author: Valentin Knabel
 author_url: https://twitter.com/vknabel
 github_url: https://github.com/vknabel/Finite
 module: Finite
-module_version: 3.0.2
+module_version: 4.0.0
 root_url: https://vknabel.github.io/Finite/
 readme: README.md
 output: docs/

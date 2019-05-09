@@ -31,6 +31,7 @@ let package = Package(
                 "swift test --generate-linuxmain",
                 "swift test",
                 "swift run swiftformat Sources *.swift Tests",
+                "jazzy || true",
                 "git add .",
             ],
         ],
