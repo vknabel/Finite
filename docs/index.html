@@ -64,6 +64,14 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ReferenceDisposable.html">ReferenceDisposable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -74,6 +82,14 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/Transition.html">Transition</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/Error">Error</a>
               </li>
             </ul>
           </li>
@@ -106,6 +122,10 @@
 <td><code>3.x.x</code></td>
 <td><code>3.0</code> and <code>4.0</code></td>
 </tr>
+<tr>
+<td><code>4.x.x</code></td>
+<td><code>4.2</code> and <code>5.0</code></td>
+</tr>
 </tbody></table>
 <h2 id='installation' class='heading'>Installation</h2>
 
@@ -116,7 +136,10 @@
 <span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
     <span class="nv">name</span><span class="p">:</span> <span class="s">"YourPackage"</span><span class="p">,</span>
     <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/vknabel/Finite.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/vknabel/Finite.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"4.0.0"</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"YourTarget"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">"Finite"</span><span class="p">]),</span>
     <span class="p">]</span>
 <span class="p">)</span>
 </code></pre>
@@ -127,7 +150,7 @@
 <pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 <span class="n">use_frameworks!</span>
 
-<span class="n">pod</span> <span class="s1">'Finite'</span>
+<span class="n">pod</span> <span class="s1">'Finite'</span><span class="p">,</span> <span class="s1">'~&gt; 4.0.0'</span>
 </code></pre>
 <h2 id='introduction' class='heading'>Introduction</h2>
 
@@ -144,7 +167,10 @@
 </code></pre>
 
 <p>It is possible to provide callbacks, that will be called once certain transitions will happen.</p>
-<pre class="highlight swift"><code><span class="n">machine</span><span class="o">.</span><span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="o">.</span><span class="n">ready</span><span class="p">)</span> <span class="p">{</span>
+<pre class="highlight swift"><code><span class="n">machine</span><span class="o">.</span><span class="n">onTransitions</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Successfully triggered transition!"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">machine</span><span class="o">.</span><span class="nf">onTransitions</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="o">.</span><span class="n">ready</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"From Ready: show activity indicator"</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="n">machine</span><span class="o">.</span><span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">.</span><span class="n">ready</span><span class="p">)</span> <span class="p">{</span>
@@ -153,6 +179,10 @@
 <span class="n">machine</span><span class="o">.</span><span class="nf">onTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">.</span><span class="n">saving</span><span class="p">)</span> <span class="p">{</span>
     <span class="nf">println</span><span class="p">(</span><span class="s">"To: save"</span><span class="p">)</span>
 <span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">subscription</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="nf">subscribeTransitions</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">.</span><span class="n">saving</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">println</span><span class="p">(</span><span class="s">"Only triggered as long as you keep `subscription`"</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre>
 
 <p>Once the <code><a href="Structs/StateMachine.html">StateMachine</a></code> has been set up, you may trigger all transitions you have declared above.</p>
@@ -160,7 +190,7 @@
     <span class="nf">println</span><span class="p">(</span><span class="s">"Triggered: save"</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="c1">// this will throw an error</span>
+<span class="c1">// this will throw TransitionError&lt;Test&gt;.denied(from: .saving, to: .fetching)</span>
 <span class="k">try</span> <span class="n">machine</span><span class="o">.</span><span class="nf">transition</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">.</span><span class="n">fetching</span><span class="p">)</span>
 </code></pre>
 <h2 id='author' class='heading'>Author</h2>
@@ -179,7 +209,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2019-01-29)</p>
+      <p>&copy; 2019 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2019-05-09)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
