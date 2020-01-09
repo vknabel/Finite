@@ -42,7 +42,7 @@ let package = Package(
             ["commit": ["no_verify": true]],
             "tag",
             "unhide_dev_dependencies",
-            "push",
+            ["git_add": ["paths": ["Package.swift", "docs"]]],
             ["commit": ["no_verify": true, "message": "Unhide dev dependencies"]],
             "push",
         ]],
