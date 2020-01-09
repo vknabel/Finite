@@ -10,9 +10,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-//        .package(url: "https://github.com/shibapm/Komondor.git", from: "1.0.4"), // dev
-//        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.43.5"), // dev
-//        .package(url: "https://github.com/f-meloni/Rocket.git", from: "1.0.0"), // dev
+        .package(url: "https://github.com/shibapm/Komondor.git", from: "1.0.4"), // dev
+        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.43.5"), // dev
+        .package(url: "https://github.com/f-meloni/Rocket.git", from: "1.0.0"), // dev
     ],
     targets: [
         .target(name: "Finite", path: "Sources"),
