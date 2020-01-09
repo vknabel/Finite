@@ -42,6 +42,7 @@ let package = Package(
             ["commit": ["no_verify": true]],
             "tag",
             "unhide_dev_dependencies",
+            "push",
             ["commit": ["no_verify": true, "message": "Unhide dev dependencies"]],
             "push",
         ]],
