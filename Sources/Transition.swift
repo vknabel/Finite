@@ -17,7 +17,7 @@
 public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     /// Nil transitions will be ignored.
     public static var nilTransition: Transition<T> {
-        return Transition<T>(from: nil, to: nil)
+        Transition<T>(from: nil, to: nil)
     }
 
     /// The source state.
@@ -75,5 +75,5 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
 
 /// :nodoc:
 public func == <T>(lhs: Transition<T>, rhs: Transition<T>) -> Bool {
-    return lhs.from == rhs.from && lhs.to == rhs.to
+    lhs.from == rhs.from && lhs.to == rhs.to
 }

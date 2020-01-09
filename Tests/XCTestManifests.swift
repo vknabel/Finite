@@ -67,7 +67,7 @@
     }
 
     public func __allTests() -> [XCTestCaseEntry] {
-        return [
+        [
             testCase(StateFlowTests.__allTests__StateFlowTests),
             testCase(StateMachineTests.__allTests__StateMachineTests),
             testCase(TransitionTests.__allTests__TransitionTests),

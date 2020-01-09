@@ -12,7 +12,7 @@ internal class Ref<T> {
     }
 
     func resolve() -> T? {
-        return value()
+        value()
     }
 
     func free() {
@@ -31,7 +31,7 @@ extension Ref {
     }
 
     static func strong(_ value: T) -> Ref {
-        return .init(dereference: { value })
+        .init(dereference: { value })
     }
 
     private struct Weak<T> {

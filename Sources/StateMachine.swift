@@ -32,7 +32,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
 
     /// The current state of the machine.
     public var state: T {
-        return currentState
+        currentState
     }
 
     /**
@@ -90,7 +90,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
      - returns: true if allowed else false.
      */
     public func allows(to: T) -> Bool {
-        return configuration.allows(transition(to))
+        configuration.allows(transition(to))
     }
 
     private mutating func observeTransitions(like transition: Transition<T>, perform opRef: Ref<Operation>) {
@@ -136,14 +136,14 @@ internal extension StateMachine {
 
         /// - returns: A transition from the current state to a given target.
         fileprivate func transition(_ to: T) -> Transition<T> {
-            return Transition<T>(from: currentState, to: to)
+            Transition<T>(from: currentState, to: to)
         }
 
     #else
 
         /// - returns: A transition from the current state to a given target.
         private func transition(to: T) -> Transition<T> {
-            return Transition<T>(from: currentState, to: to)
+            Transition<T>(from: currentState, to: to)
         }
 
     #endif

@@ -20,7 +20,7 @@ class TransitionTests: XCTestCase {
     var abst: Transition<Test>!
     var abstr: Transition<Test>!
     var ts: [Transition<Test>]! {
-        return [nilt, relft, reltt, abst, abstr]
+        [nilt, relft, reltt, abst, abstr]
     }
 
     override func setUp() {

@@ -5,10 +5,10 @@
    objects = {
       "Finite::Finite" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_34";
+         buildConfigurationList = "OBJ_35";
          buildPhases = (
-            "OBJ_37",
-            "OBJ_42"
+            "OBJ_38",
+            "OBJ_43"
          );
          dependencies = (
          );
@@ -24,24 +24,24 @@
       };
       "Finite::FinitePackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_50";
+         buildConfigurationList = "OBJ_51";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_53"
+            "OBJ_54"
          );
          name = "FinitePackageTests";
          productName = "FinitePackageTests";
       };
       "Finite::FiniteTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_55";
+         buildConfigurationList = "OBJ_56";
          buildPhases = (
-            "OBJ_58",
-            "OBJ_64"
+            "OBJ_59",
+            "OBJ_65"
          );
          dependencies = (
-            "OBJ_66"
+            "OBJ_67"
          );
          name = "FiniteTests";
          productName = "FiniteTests";
@@ -55,9 +55,9 @@
       };
       "Finite::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_44";
+         buildConfigurationList = "OBJ_45";
          buildPhases = (
-            "OBJ_47"
+            "OBJ_48"
          );
          dependencies = (
          );
@@ -73,7 +73,7 @@
          };
          buildConfigurationList = "OBJ_2";
          compatibilityVersion = "Xcode 3.2";
-         developmentRegion = "English";
+         developmentRegion = "en";
          hasScannedForEncodings = "0";
          knownRegions = (
             "en"
@@ -165,8 +165,8 @@
       "OBJ_20" = {
          isa = "PBXGroup";
          children = (
-            "Finite::Finite::Product",
-            "Finite::FiniteTests::Product"
+            "Finite::FiniteTests::Product",
+            "Finite::Finite::Product"
          );
          name = "Products";
          path = "";
@@ -184,27 +184,27 @@
       };
       "OBJ_25" = {
          isa = "PBXFileReference";
-         path = "build";
+         path = "Scripts";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_26" = {
          isa = "PBXFileReference";
-         path = "Finite.podspec";
-         sourceTree = "<group>";
+         path = "build";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_27" = {
          isa = "PBXFileReference";
-         path = "codecov.yml";
+         path = "Finite.podspec";
          sourceTree = "<group>";
       };
       "OBJ_28" = {
          isa = "PBXFileReference";
-         path = "LICENSE";
+         path = "codecov.yml";
          sourceTree = "<group>";
       };
       "OBJ_29" = {
          isa = "PBXFileReference";
-         path = "CHANGELOG.md";
+         path = "LICENSE";
          sourceTree = "<group>";
       };
       "OBJ_3" = {
@@ -225,6 +225,7 @@
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             ONLY_ACTIVE_ARCH = "YES";
             OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
                "-DXcode"
             );
             PRODUCT_NAME = "$(TARGET_NAME)";
@@ -250,68 +251,32 @@
       };
       "OBJ_30" = {
          isa = "PBXFileReference";
-         path = "README.md";
+         path = "CHANGELOG.md";
          sourceTree = "<group>";
       };
       "OBJ_31" = {
          isa = "PBXFileReference";
-         path = "Gemfile";
+         path = "README.md";
          sourceTree = "<group>";
       };
       "OBJ_32" = {
          isa = "PBXFileReference";
+         path = "Gemfile";
+         sourceTree = "<group>";
+      };
+      "OBJ_33" = {
+         isa = "PBXFileReference";
          path = "Gemfile.lock";
          sourceTree = "<group>";
       };
-      "OBJ_34" = {
+      "OBJ_35" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_35",
-            "OBJ_36"
+            "OBJ_36",
+            "OBJ_37"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
-      };
-      "OBJ_35" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Finite.xcodeproj/Finite_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "Finite";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Finite";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
       };
       "OBJ_36" = {
          isa = "XCBuildConfiguration";
@@ -352,24 +317,61 @@
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
-         name = "Release";
+         name = "Debug";
       };
       "OBJ_37" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_38",
-            "OBJ_39",
-            "OBJ_40",
-            "OBJ_41"
-         );
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Finite.xcodeproj/Finite_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Finite";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "Finite";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
       };
       "OBJ_38" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_8";
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_39",
+            "OBJ_40",
+            "OBJ_41",
+            "OBJ_42"
+         );
       };
       "OBJ_39" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
+         fileRef = "OBJ_8";
       };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
@@ -386,6 +388,7 @@
             );
             MACOSX_DEPLOYMENT_TARGET = "10.10";
             OTHER_SWIFT_FLAGS = (
+               "$(inherited)",
                "-DXcode"
             );
             PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,43 +413,29 @@
       };
       "OBJ_40" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
+         fileRef = "OBJ_9";
       };
       "OBJ_41" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_11";
+         fileRef = "OBJ_10";
       };
       "OBJ_42" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_11";
+      };
+      "OBJ_43" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
          );
       };
-      "OBJ_44" = {
+      "OBJ_45" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_45",
-            "OBJ_46"
+            "OBJ_46",
+            "OBJ_47"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
-      };
-      "OBJ_45" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
       };
       "OBJ_46" = {
          isa = "XCBuildConfiguration";
@@ -460,19 +449,41 @@
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "-package-description-version",
+               "5"
+            );
+            SWIFT_VERSION = "5.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_47" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "-package-description-version",
+               "5"
             );
             SWIFT_VERSION = "5.0";
          };
          name = "Release";
       };
-      "OBJ_47" = {
+      "OBJ_48" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_48"
+            "OBJ_49"
          );
       };
-      "OBJ_48" = {
+      "OBJ_49" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_6";
       };
@@ -493,83 +504,45 @@
             "OBJ_29",
             "OBJ_30",
             "OBJ_31",
-            "OBJ_32"
+            "OBJ_32",
+            "OBJ_33"
          );
          path = "";
          sourceTree = "<group>";
       };
-      "OBJ_50" = {
+      "OBJ_51" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_51",
-            "OBJ_52"
+            "OBJ_52",
+            "OBJ_53"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
-      };
-      "OBJ_51" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-         };
-         name = "Debug";
       };
       "OBJ_52" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
          };
-         name = "Release";
+         name = "Debug";
       };
       "OBJ_53" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_54" = {
          isa = "PBXTargetDependency";
          target = "Finite::FiniteTests";
       };
-      "OBJ_55" = {
+      "OBJ_56" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_56",
-            "OBJ_57"
+            "OBJ_57",
+            "OBJ_58"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
-      };
-      "OBJ_56" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "Finite.xcodeproj/FiniteTests_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "@loader_path/../Frameworks",
-               "@loader_path/Frameworks"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "FiniteTests";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
       };
       "OBJ_57" = {
          isa = "XCBuildConfiguration";
@@ -608,21 +581,56 @@
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
-         name = "Release";
+         name = "Debug";
       };
       "OBJ_58" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Finite.xcodeproj/FiniteTests_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "10.10";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "FiniteTests";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Release";
+      };
+      "OBJ_59" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_59",
             "OBJ_60",
             "OBJ_61",
             "OBJ_62",
-            "OBJ_63"
+            "OBJ_63",
+            "OBJ_64"
          );
-      };
-      "OBJ_59" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
       };
       "OBJ_6" = {
          isa = "PBXFileReference";
@@ -632,31 +640,35 @@
       };
       "OBJ_60" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_14";
       };
       "OBJ_61" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
+         fileRef = "OBJ_15";
       };
       "OBJ_62" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         fileRef = "OBJ_16";
       };
       "OBJ_63" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
+         fileRef = "OBJ_17";
       };
       "OBJ_64" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_65"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_18";
       };
       "OBJ_65" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_66"
+         );
+      };
+      "OBJ_66" = {
          isa = "PBXBuildFile";
          fileRef = "Finite::Finite::Product";
       };
-      "OBJ_66" = {
+      "OBJ_67" = {
          isa = "PBXTargetDependency";
          target = "Finite::Finite";
       };
