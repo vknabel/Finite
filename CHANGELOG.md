@@ -1,5 +1,33 @@
 # Changelog
 
+## 4.0.0
+
+The new Finite offers you two new features: temporarily subscribing transitions and observing any transitions at once.
+
+Use the new `onTransitions(perform:)` or `subscribeTransitions(perform:)` methods to observe all transitions.
+Temporarily `subscribeTransitions` of your State Machines and bind the callbacks to the lifetime of your View Controllers. Just don't forget to store the subscription to bind `self` as `weak` or `unowned`.
+
+### Breaking Changes
+
+- Requires Swift 5
+- Previously passing `Transition.nilTransition` to `StateMachine.onTransitions(like:perform:)` did never trigger the `perform` handler and was therefore useless. Now it will always be triggered.
+
+### Additions
+
+- Deprecated  `StateMachine.onTransitions(transition:perform:)` in favor of `StateMachine.onTransitions(like:perform:)`.
+- The `StateMachine.onTransitions(perform:)` overload for `StateMachine.onTransitions(perform:)`.
+- Adds temporary observation of transitions `subscribeTransitions(like:perform:)`, `subscribeTransitions(perform:)`, `subscribeTransitions(from:perform:)`, `subscribeTransitions(to:perform:)`, `subscribeTransitions(from:to:perform:)`. All return a `ReferenceDisposable` which needs to be stored as a strong reference. On deinit, the handler will be freed.
+
+### Upgrading to 4.0.0
+
+First bump your dependency version of Finite to `4.0.0`.
+When you compile your project, you won't experience compile errors. Instead you will receive compiler warnings whenever you used `StateMachine.onTransitions(transition:perform:)`. If there are no warnings, you already finished the upgrade.
+
+In case you passed `.nilTransition`: this did never work. Your `perform` operation has never been called!
+Starting from 4.0.0, `.nilTransition` operations will always be called.
+
+In case you did not pass a `.nilTransition`, apply the fix-it and use `onTransitions(like:perform:)` instead.
+
 ## 3.1.1
 
 ### Fixes

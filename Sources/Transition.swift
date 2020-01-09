@@ -17,7 +17,7 @@
 public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     /// Nil transitions will be ignored.
     public static var nilTransition: Transition<T> {
-        return Transition<T>(from: nil, to: nil)
+        Transition<T>(from: nil, to: nil)
     }
 
     /// The source state.
@@ -58,8 +58,7 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     }
 
     #if swift(>=4.2)
-        // Synthesized by compiler
-        /// :nodoc:
+        // compiler generated
         public func hash(into hasher: inout Hasher) {
             hasher.combine(from)
             hasher.combine(to)
@@ -68,6 +67,7 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
     #else
         /// :nodoc:
         public var hashValue: Int {
+            print("Swift <4.2")
             return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
         }
     #endif
@@ -75,5 +75,5 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
 
 /// :nodoc:
 public func == <T>(lhs: Transition<T>, rhs: Transition<T>) -> Bool {
-    return lhs.from == rhs.from && lhs.to == rhs.to
+    lhs.from == rhs.from && lhs.to == rhs.to
 }

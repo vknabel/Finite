@@ -1,0 +1,1 @@
+--disable redundantSelf # ambiguous wait(for:timeout:)

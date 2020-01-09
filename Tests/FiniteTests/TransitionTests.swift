@@ -6,31 +6,29 @@
 //  Copyright (c) 2015 Valentin Knabel. All rights reserved.
 //
 
-import XCTest
 import Finite
+import XCTest
 
-class TransitionTests: XCTestCase, LinuxTestCase {
-
+class TransitionTests: XCTestCase {
     enum Test {
-        case S0, S1
+        case s0, s1
     }
 
-    static var allTests = [
-        ("testAbsolute", testAbsolute),
-        ("testRelative", testRelative),
-        ("testNil", testNil),
-        ("testEqualty", testEqualty),
-        ("testHash", testHash),
-        ("testGeneral", testGeneral)
-    ]
+    var nilt: Transition<Test>!
+    var relft: Transition<Test>!
+    var reltt: Transition<Test>!
+    var abst: Transition<Test>!
+    var abstr: Transition<Test>!
+    var ts: [Transition<Test>]! {
+        [nilt, relft, reltt, abst, abstr]
+    }
 
-    let nilt = Transition<Test>.nilTransition
-    let relft = Transition<Test>(from: Test.S0, to: nil)
-    let reltt = Transition<Test>(from: nil, to: Test.S1)
-    let abst = Transition<Test>(from: Test.S0, to: Test.S1)
-    let abstr = Transition<Test>(from: Test.S1, to: Test.S0)
-    var ts: [Transition<Test>] {
-        return [nilt, relft, reltt, abst, abstr]
+    override func setUp() {
+        nilt = Transition<Test>.nilTransition
+        relft = Transition<Test>(from: Test.s0, to: nil)
+        reltt = Transition<Test>(from: nil, to: Test.s1)
+        abst = Transition<Test>(from: Test.s0, to: Test.s1)
+        abstr = Transition<Test>(from: Test.s1, to: Test.s0)
     }
 
     func testAbsolute() {
@@ -47,7 +45,6 @@ class TransitionTests: XCTestCase, LinuxTestCase {
         if reltt.from != nil || reltt.to == nil {
             XCTFail("Target Transition")
         }
-
     }
 
     func testNil() {
@@ -58,8 +55,8 @@ class TransitionTests: XCTestCase, LinuxTestCase {
     }
 
     func testEqualty() {
-        for li in 0..<ts.count {
-            for ri in 0..<ts.count {
+        for li in 0 ..< ts.count {
+            for ri in 0 ..< ts.count {
                 XCTAssertEqual(ts[li] == ts[ri], li == ri, "Diagonal equal, else unequal")
             }
         }
@@ -67,7 +64,7 @@ class TransitionTests: XCTestCase, LinuxTestCase {
 
     func testHash() {
         // cannot test for unequalty => there may always be collisions
-        for i in 0..<ts.count {
+        for i in 0 ..< ts.count {
             XCTAssertEqual(ts[i].hashValue, ts[i].hashValue, "Diagonal hash equal")
         }
     }
@@ -79,5 +76,11 @@ class TransitionTests: XCTestCase, LinuxTestCase {
         XCTAssertEqual(abst.generalTransitions, [abst, relft, reltt], "Absolute transition generals")
     }
 
+    func testDescription() {
+        XCTAssertEqual(nilt.description, "any -> any")
+        XCTAssertEqual(relft.description, "s0 -> any")
+        XCTAssertEqual(reltt.description, "any -> s1")
+        XCTAssertEqual(abst.description, "s0 -> s1")
+        XCTAssertEqual(abstr.description, "s1 -> s0")
+    }
 }
-
