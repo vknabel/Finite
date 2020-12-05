@@ -6,11 +6,6 @@
 //  Copyright (c) 2015 Valentin Knabel. All rights reserved.
 //
 
-#if !swift(>=3.0)
-    /// A shim for Swift 3.0's Error protocol
-    public typealias Error = ErrorType
-#endif
-
 /// Indicates that a transition failed.
 public enum TransitionError<T: Hashable>: Error {
     /// Represents a tried transition that is not allowed.
@@ -66,7 +61,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
      - returns: Wether the transition could be performed or not.
      */
     public mutating func transition(to: T, completion: Operation? = nil) throws {
-        let transition = self.transition(to)
+        let transition = self.transition(to: to)
         if configuration.allows(transition) {
             for t in transition.generalTransitions + [.nilTransition] {
                 if let handlers = self.transitionHandlers[t] {
@@ -90,7 +85,7 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
      - returns: true if allowed else false.
      */
     public func allows(to: T) -> Bool {
-        configuration.allows(transition(to))
+        configuration.allows(transition(to: to))
     }
 
     private mutating func observeTransitions(like transition: Transition<T>, perform opRef: Ref<Operation>) {
@@ -132,21 +127,10 @@ public struct StateMachine<T: Hashable>: CustomStringConvertible {
 }
 
 internal extension StateMachine {
-    #if swift(>=3.0)
-
-        /// - returns: A transition from the current state to a given target.
-        fileprivate func transition(_ to: T) -> Transition<T> {
-            Transition<T>(from: currentState, to: to)
-        }
-
-    #else
-
-        /// - returns: A transition from the current state to a given target.
-        private func transition(to: T) -> Transition<T> {
-            Transition<T>(from: currentState, to: to)
-        }
-
-    #endif
+    /// - returns: A transition from the current state to a given target.
+    private func transition(to: T) -> Transition<T> {
+        Transition<T>(from: currentState, to: to)
+    }
 }
 
 public extension StateMachine {

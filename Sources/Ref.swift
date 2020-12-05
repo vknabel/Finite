@@ -1,4 +1,4 @@
-/// A subsription reference which needs to be referenced strongly.
+/// A subscription reference which needs to be referenced strongly.
 public protocol ReferenceDisposable {
     /// Disposes the current subscription. Current and future operations will be canceled.
     func dispose()

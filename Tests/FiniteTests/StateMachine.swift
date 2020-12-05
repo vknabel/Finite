@@ -34,7 +34,7 @@ class StateMachineTests: XCTestCase {
         prepare(initial: .s0, allowing: Transition(from: .s0, to: .s1))
         let action = { try self.sut.transition(to: .s0) }
         XCTAssertThrowsError(try action()) { error in
-            if case let TransitionError.denied(from: from, to: to) as TransitionError<Test> = error {
+            if case let .denied(from: from, to: to) = error as? TransitionError<Test> {
                 XCTAssertEqual(from, .s0)
                 XCTAssertEqual(to, .s0)
             } else {

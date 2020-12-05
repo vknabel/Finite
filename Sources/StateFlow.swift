@@ -13,7 +13,8 @@ public struct StateFlow<T: Hashable>: CustomStringConvertible {
     /// Configures the instance for immutable usage.
     public typealias Configurator = (inout StateFlow<T>) -> Void
 
-    /// Empty array means transition is allowed. Once there is a single filter, all previous unconditioned transitions are omitted.
+    /// Empty array means transition is allowed.
+    /// Once there is a single filter, all previous unconditioned transitions are omitted.
     private var transitionFilters: [Transition<T>: TransitionFilter?] = [:]
 
     /**

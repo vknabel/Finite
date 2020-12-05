@@ -1,1 +1,2 @@
 --disable redundantSelf # ambiguous wait(for:timeout:)
+--tabwidth 4

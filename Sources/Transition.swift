@@ -57,20 +57,10 @@ public struct Transition<T: Hashable>: Hashable, CustomStringConvertible {
         return "\(f) -> \(t)"
     }
 
-    #if swift(>=4.2)
-        // compiler generated
-        public func hash(into hasher: inout Hasher) {
-            hasher.combine(from)
-            hasher.combine(to)
-        }
-
-    #else
-        /// :nodoc:
-        public var hashValue: Int {
-            print("Swift <4.2")
-            return (from?.hashValue ?? 0) + (to?.hashValue ?? 0)
-        }
-    #endif
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(from)
+        hasher.combine(to)
+    }
 }
 
 /// :nodoc:
